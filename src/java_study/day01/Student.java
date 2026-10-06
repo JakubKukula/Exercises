@@ -3,19 +3,19 @@ package java_study.day01;
 public class Student {
 
     private String name;
-    static int licznik = 0;
+    private static int counter;
 
     public Student(String name) {
         this.name = name;
-        licznik++;
+        counter++;
     }
 
     void introduceYourself(){
         System.out.println(name);
     }
 
-    static int studentsCounter(){
-        return licznik;
+    static int getStudentCount(){
+        return counter;
     }
     // po zmianie licznik na name wyśletlany komunikat
     // "java: non-static variable name cannot be referenced from a static context"

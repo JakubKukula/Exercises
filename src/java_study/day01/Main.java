@@ -11,7 +11,7 @@ public class Main {
         s2.introduceYourself();
         s3.introduceYourself();
 
-        System.out.println(Student.studentsCounter());
+        System.out.println(Student.getStudentCount());
     }
 }
 

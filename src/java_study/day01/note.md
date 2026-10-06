@@ -4,5 +4,5 @@ Pyta więc: czyje name? Obiektu nie ma, więc nie ma this, więc dostajesz błą
 
 
 java: illegal start of expression
-To błąd składni, a nie logiki. Parser dotarł do miejsca, w którym ten token nie ma prawa się pojawić.
-Komunikat jest ogólnikowy, a prawdziwa przyczyna leży zwykle linię lub kilka linii wyżej niż wskazany numer.
+To błąd składni, a nie logiki. sam błąd znaczy że java oczekiwała w tym miejscu wyrażenia albo instrukcji, a dostała
+token od którego żadne wyrażenie nie może się zaczynać
