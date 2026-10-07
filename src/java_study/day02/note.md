@@ -1,5 +1,5 @@
 dlaczego main jest static?
-ponieważ JVM nie może uruchomić main bez obiektu main.
+main jest static właśnie po to, żeby JVM mogła go uruchomić bez obiektu
 tak samo jak nie wywołamy metody statycznej bez odwołania sie do danej klasy
 
 Klasa - szablon, który opisuje, jakie dane (pola) i metody będą miały obiekty tego typu
@@ -51,9 +51,34 @@ char to liczba: 'A' + 1 daje 66.
 
 Pomyłki z TypeExpreriment
 System.out.println(7 % 2); // nie wiem ale myślę żę 3
-7 % 2 daje 1. % to reszta z dzielenia. 7 / 2 = 6 więc zostaje 1.
+7 % 2 daje 1. % to reszta z dzielenia. 7 / 2 = 3 * 2 = 6 więc zostaje 1.
 
 System.out.println((byte) 200); // wyrzuci bład bo byte mieści wartości od -128 do 127
 wynik to -56 dlaczego? byte ma 256 możliwości w zakresie od -128 do 127, jeżeli lidzba wynosi np. 
 400 odejmujemy od niej 256 = 144 liczba dalej nie mieści sie w zakresie więc odejmujemy dalej 256 = - 112 
 a dla liczb ujemnych dodajemy 256
+
+final :
+Gdzie	          Co blokuje
+zmienna lokalna   ponowne przypisanie; wartość nadajesz raz
+pole	          ponowne przypisanie; musi dostać wartość w deklaracji albo w każdym konstruktorze
+static final pole to stała, nazwa wielkimi literami: static final double VAT = 0.23;
+metoda	          nadpisanie w klasie dziedziczącej
+klasa	          dziedziczenie; np. String jest final
+
+final int[] t = {1, 2};
+t[0] = 9;          // OK: zmienia obiekt, na który wskazuje t
+t = new int[3];    // BŁĄD: próbujesz przestawić referencję t
+
+final blokuje zmienną (jej referencję), a nie obiekt, na który ona wskazuje. Tak samo final Student s pozwala zmienić 
+pola studenta, ale nie pozwala, żeby s wskazywało na innego studenta.
+
+Po co final: kod jest czytelniejszy, bo od razu widać, co się nie zmienia. Kompilator łapie przypadkowe nadpisanie. 
+final jest też podstawą obiektów niemutowalnych, takich jak String.
+
+Cannot assign a value to final variable 'number'
+czyli „nie można przypisać wartości do zmiennej final o nazwie number”. bo to pole zostało już zainicjalizowane wcześniej
+a żadna metoda nie pozwoli na zmianę pola final.
+
+//t = new int[3]; w tym przypadku pojawi sie ten sam błąd ale wskarze na zmienna t bo tutaj chcemy wskazać na 
+inna referncję na co final też nie pozwala
