@@ -3,7 +3,7 @@ package java_study.day03;
 import java.util.Scanner;
 
 public class Registration {
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -15,14 +15,14 @@ public class Registration {
         int age = scanner.nextInt();// zapiszę wiek
         scanner.nextLine(); // pierwsze rozwiązanie
 //         int age = Integer.parseInt(scanner.nextLine()); drugie rozwiązanie
-        //double growth = Double.parseDouble(scanner.nextLine()); // wpisując 1,80 wyrzuci błąd (NumberFormatException)
-        double growth = scanner.nextDouble();// wpisując 1.80 wyrzuca błąd InputMismatchException
+        //double height = Double.parseDouble(scanner.nextLine()); // wpisując 1,80 wyrzuci błąd (NumberFormatException)
+        double height = scanner.nextDouble();// wpisując 1.80 wyrzuca błąd InputMismatchException
         scanner.nextLine();
-        String city = scanner.nextLine(); // zapisze pusty String ponieważ nextint zabiera samą liczbę a enter zostaje
+        String city = scanner.nextLine();
 
         System.out.println("Full name: " + fullName);
         System.out.println("Age: " + age);
-        System.out.println("Growth: " + growth);
+        System.out.println("Growth: " + height);
         System.out.println("City: " + city);
 
         //Full name: Jakub Kukula
