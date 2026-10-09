@@ -22,7 +22,7 @@ public class Registration {
 
         System.out.println("Full name: " + fullName);
         System.out.println("Age: " + age);
-        System.out.println("Growth: " + height);
+        System.out.println("Height: " + height);
         System.out.println("City: " + city);
 
         //Full name: Jakub Kukula
