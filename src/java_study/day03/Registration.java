@@ -27,7 +27,7 @@ public class Registration {
 
         //Full name: Jakub Kukula
         //Age: 27
-        //Growth: 1.85
+        //Height: 1.85
         //City: Wroclaw
 
         scanner.close();

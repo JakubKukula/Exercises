@@ -1,5 +1,4 @@
-NumberFormatException - to błąd (wyjątek) w języku Java, który występuje wtedy, gdy program próbuje przekształcić tekst 
-(String) na liczbę, ale ten tekst nie ma odpowiedniego formatu numerycznego.
+NumberFormatException - program próbuje przekształcić tekst liczbę, ale ten tekst nie ma odpowiedniego formatu numerycznego.
 
 InputMismatchException - wprowadzony tekst nie pasuje typem , albo jest poza zakresem danego typu danych
 

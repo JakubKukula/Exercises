@@ -5,12 +5,17 @@ import java.util.Scanner;
 public class Condition {
 
     private static final int MIN_BDB = 90;
-    private static final int MIN_BD = 75;
+    private static final int MIN_DB = 75;
     private static final int MIN_DST = 50;
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+
+        int a = scanner.nextInt();
+        String r = scanner.nextLine();
+        System.out.println(a);
+        System.out.println(r);
 
         System.out.println("Enter points");
 
@@ -22,7 +27,7 @@ public class Condition {
 
         if (points >= MIN_BDB) { // 90
             System.out.println("bdb");
-        } else if (points >= MIN_BD) { // 75 89
+        } else if (points >= MIN_DB) { // 75 89
             System.out.println("db");
         } else if (points >= MIN_DST) { // 50 74
             System.out.println("dst");
