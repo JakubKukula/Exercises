@@ -12,11 +12,6 @@ public class Condition {
 
         Scanner scanner = new Scanner(System.in);
 
-        int a = scanner.nextInt();
-        String r = scanner.nextLine();
-        System.out.println(a);
-        System.out.println(r);
-
         System.out.println("Enter points");
 
         while (!scanner.hasNextInt()) {
