@@ -42,3 +42,8 @@ napisujemy zmienna max większą warością
    }
 }
 System.out.println(max); wypisanie zmiennej, największej wartości z tablicy t
+
+Przy braku walidacji metody countEven i wywołaniu null program wyrzuca błąd: 
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "<local2>" is null
+at java_study.day06.ArrayPractice.countEven(ArrayPractice.java:58)
+at java_study.day06.Main.main(Main.java:44)

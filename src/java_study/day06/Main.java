@@ -41,7 +41,7 @@ public class Main {
 
         System.out.println(ArrayPractice.min(numbers));
 
-        System.out.println(ArrayPractice.countEven(numbers));
+        System.out.println(ArrayPractice.countEven(null));
 
         ArrayPractice.printReverse(numbers);
         System.out.println();
@@ -54,10 +54,12 @@ public class Main {
 
         ArrayPractice.doubleAll(numbers); // mnoży każdy element razy 2
 
+        System.out.println(Arrays.toString(numbers)); // 8, 18, 2, 14, 6
+
         ArrayPractice.replace(numbers); // nie wpłynie na tablicę numbers to t tworzy nowy obiekt który istnieje tylko
         // w metodzie i po zakończeniu znika
 
-        System.out.println(Arrays.toString(numbers));
+        System.out.println(Arrays.toString(numbers)); // 8, 18, 2, 14, 6
 
     }
 }
