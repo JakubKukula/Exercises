@@ -36,3 +36,6 @@ System.out.println(p); wyświetli 3
 6. sout sie nie skompiluje ponieważ zmienna y instnieje tylko i wyłącznie w if sout jej nie widzi
 
 Dlaczego metody klasy Loops muszą być static - żeby można było wywołać je bez tworzenia obiektu tylko wywołać je na klasie
+a gdyby usunąc static trzeba by było utwożyć obiekt i na nim wywoływać metodę
+Loops loops = new Loops();
+loops.evenSumIf();

@@ -36,6 +36,9 @@ public class Loops {
         return sum;
     }
 
+    // dlaczego w tym zadaniu lepsze jest do while a nie samo while - do while najpierw wykona czynnośc potem sprawdza
+    // w tym zadaniu program pyta o liczbe waliduje i zwiększa licznik strzałów a dopiero potem wprawdza czy to poprawna
+    // licbza w while warunek w pętli odrazu by to sprawdzał i nie mozna by było zwiększyć licznika.
     static int guessGame() {
         Scanner scanner = new Scanner(System.in);
         int count = 0;
