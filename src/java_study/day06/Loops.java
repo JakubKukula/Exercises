@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Loops {
 
+    private static final int SECRET = 7;
+
     static void multiplicationTable() {
         for (int i = 1; i <= 5; i++) {
             for (int j = 1; j <= 5; j++) {
@@ -14,27 +16,25 @@ public class Loops {
     }
 
     static int evenSumIf() {
-        int total1 = 0;
+        int sum = 0;
         for (int i = 1; i <= 100; i++) {
             if (i % 2 == 0) {
-                total1 += i;
+                sum += i;
             }
         }
-        return total1;
+        return sum;
     }
 
     static int evenSumContinue() {
-        int total2 = 0;
+        int sum = 0;
         for (int i = 1; i <= 100; i++) {
             if (i % 2 != 0) {
                 continue;
             }
-            total2 += i;
+            sum += i;
         }
-        return total2;
+        return sum;
     }
-
-    private static final int SECRET = 7;
 
     static int guessGame() {
         Scanner scanner = new Scanner(System.in);

@@ -9,11 +9,11 @@ public class Registration {
 
         System.out.println("Enter full name");
         String fullName = scanner.nextLine(); // poprawnie zapisze imie i nazwisko
+        System.out.println("Enter age");
         while (!scanner.hasNextInt()){
             System.out.println("This is not number, try again");
             scanner.next();
         }
-        System.out.println("Enter age");
         int age = scanner.nextInt();// zapiszę wiek
         scanner.nextLine(); // pierwsze rozwiązanie
 //         int age = Integer.parseInt(scanner.nextLine()); drugie rozwiązanie
