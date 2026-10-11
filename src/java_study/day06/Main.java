@@ -1,5 +1,7 @@
 package java_study.day06;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -28,6 +30,34 @@ public class Main {
 //        java: cannot find symbol
 //        symbol:   variable i
 //        location: class java_study.day06.Main
+
+        int[] numbers = {4, 9, 1, 7, 3};
+
+        System.out.println(ArrayPractice.sum(numbers));
+
+        System.out.println(ArrayPractice.average(numbers));
+
+        System.out.println(ArrayPractice.max(numbers));
+
+        System.out.println(ArrayPractice.min(numbers));
+
+        System.out.println(ArrayPractice.countEven(numbers));
+
+        ArrayPractice.printReverse(numbers);
+        System.out.println();
+
+        int[][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
+
+        ArrayPractice.printMatrix(matrix);
+
+        System.out.println(ArrayPractice.diagonalSum(matrix));
+
+        ArrayPractice.doubleAll(numbers); // mnoży każdy element razy 2
+
+        ArrayPractice.replace(numbers); // nie wpłynie na tablicę numbers to t tworzy nowy obiekt który istnieje tylko
+        // w metodzie i po zakończeniu znika
+
+        System.out.println(Arrays.toString(numbers));
 
     }
 }
