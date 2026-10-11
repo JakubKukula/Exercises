@@ -51,9 +51,9 @@ public class ArrayPractice {
     }
 
     static int countEven(int[] t) {
-//        if (t == null) {
-//            throw new IllegalArgumentException("Array cannot be null");
-//        }
+        if (t == null) {
+            throw new IllegalArgumentException("Array cannot be null");
+        }
         int count = 0;
         for (int number : t) {
             if (number % 2 == 0) { // warunek sprawdza czy liczba jest parzysta true zmiększa licznik
