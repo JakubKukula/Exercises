@@ -1,18 +1,20 @@
 package java_study;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        int a = 0;
-        if (a > 0 && ++a > 0) {
+        Scanner sc = new Scanner(System.in);
 
-        }
-        if (a == 0 || ++a > 0) {
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        String c = sc.nextLine();
+        System.out.println(a + "|" + b + "|" + c + "|");
 
-        }
-        System.out.println(a);
     }
+
+
 }
 
