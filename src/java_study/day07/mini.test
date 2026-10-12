@@ -115,7 +115,7 @@ while (n > 1) { pętla + warunek
     n = n / 2; 20 / 2 = 10 /1 iteracja(n = 10) -> 2 iteracja(n = 5) -> 3 iteracja(n = 2) -> 4 iteracja(n = 1) = false
     c++;                        c = 1                   c = 2               c = 3
 }
-System.out.println(n + " " + c); 2 3
+System.out.println(n + " " + c); 2 3 -> powinno być 1 4 nie policzyłem ostatniej iteracji
 
 5.
 int k = 10; deklaracja + inicjalizacja

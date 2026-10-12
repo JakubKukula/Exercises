@@ -7,7 +7,7 @@ public class Main {
 
         int x = 10;
 
-        PassByValueLab.incrementInt(x); // wypisuje 10 poniważ w metodzie jest sout ale metoda nie wpływa na zmienna x
+        PassByValueLab.incrementInt(x); // wypisuje 11 poniważ w metodzie jest sout ale metoda nie wpływa na zmienna x
         System.out.println(x); // x bez zmiany
 
         int[] numbers = {1, 2, 3, 4};

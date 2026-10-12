@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        String c = sc.nextLine();
-        System.out.println(a + "|" + b + "|" + c + "|");
-
+        int n = 20;
+        int c = 0;
+        while (n > 1) {
+            n = n / 2;
+            c++;
+        }
+        System.out.println(n + " " + c);
     }
 
 
