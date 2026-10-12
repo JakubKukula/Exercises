@@ -41,7 +41,7 @@ public class Main {
 
         System.out.println(ArrayPractice.min(numbers));
 
-        System.out.println(ArrayPractice.countEven(null));
+        System.out.println(ArrayPractice.countEven(numbers));
 
         ArrayPractice.printReverse(numbers);
         System.out.println();

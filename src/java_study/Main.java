@@ -5,10 +5,14 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int[] t = {1, 2, 3};
-        for (int v : t) {
-            v = v * 2;
+        int a = 0;
+        if (a > 0 && ++a > 0) {
+
         }
-        System.out.println(Arrays.toString(t));
+        if (a == 0 || ++a > 0) {
+
+        }
+        System.out.println(a);
     }
 }
+

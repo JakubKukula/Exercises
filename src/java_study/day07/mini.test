@@ -1,0 +1,59 @@
+Część A:
+Klasa- szablon(project) który zawiera konkretne dane (pola) i  metody które będa miały obiekty tej klasy
+obiekt - instancja danej klasy tworzona za pomocą new z własnymi wartościami pól
+instancja - obiekt danje klasy
+pole - zmienna zadeklarowana w klasie, przechowuje dane obiektu
+metoda - blok kody który wykonyje daną czynność
+konstruktor - specjalny blok kodu który inicjalizuje pieresze wartości obiektu, wywoływany na pomocą new
+nie jset to metoda
+modyfikator dostępu - określa kto może korzystać z danej metody, klasy czy konstuktora
+static - słowo określające czy dany element należy do klasy, jedna kopia dla danej klasy, dostęp bez tworzenia obiektu
+deklaracja - nadanie typu i nazwy zmiennej
+inicjalizacja - nadanie zmiennej pierwszej wartości
+wywołanie - uruchomienie danej metody lub konstruktora
+odwołamnie - odczyt lub zapis pola (zmiennej)
+
+Część B:
+1. ponieważ podczas uruchamiania systemu nie mamy stworzonego obieku a jvm musi sie na czym uruchomić
+2. sout wypisze 25 30 2
+wynik: przypisana nowa wartość siedzen dla obiektu a
+3. nie skompiluje sie linia A,C ponieważ linia A nie wypisze nam nic name posiada obiekt nie klasa
+C - bo id jest final a final jest icicjalizowane w kontruktorze
+4.true wskazują ten sam obiekt
+false wskazują inny obiekt
+true - wartości porównywane przez equals są takie same
+kot
+5. sout wypisze 9 100
+6. sout wypisze [" 42 "][" Ola "]
+7.Wynik AB
+8. wynik 2
+9.int s = 0; deklaracja + inicjalizacja
+  for (int i = 10; i > 0; i -= 3) { wartośc początkowa , warunek , w tym przypadku i będzie sie zmienszało o 3 co iteracje
+      if (i == 4) continue; warunek jezeli i = 4 to przechodzimy do kolejnej iteraci nie patrząc na kod poniżej
+      s += i; dodaje do zmiennej s kolejne wartości i
+  }
+  System.out.println(s); = 18
+10. sout wypisze 3 2 5
+11. sout wypisze false true
+12.sout wypisze 2.0 2.5
+13.
+static int countGreater(int[] t, int limit){
+if (t == null) {
+    throw new IllegalArgumentExeption("Array cannot by null");
+}
+int count = 0;
+for (int number : t) {
+    if (number > limit) {
+    count++;
+    }
+}
+return count;
+zadanie 13 napisałem w notatce nie w programie więc może brakować justownia
+14.while od do while różni sie tym że pętka while od samego początku sprawdza daną zmienna i jeżeli jest false pętla
+sie zamyka a do while najpierw wykonuje pierwszą część kodu a na koniec sprawdza warunek czy np. 10 > 5. jezeli false
+to zaczyna od początku. pętle do while można fajnie wykorzystać w zadanaich ze scanner i grach gdzie zmienna wartośc
+jest podawana na bierząco a nie zahardokowana
+15. String jest niemutowalny ponieważ komplikowało by to String pool aktualnie jak tworzymy dwie zmienne String a i b
+zadamy im wartość kot to obie zmienne wskazują na ten sam obiekt w String pool i odczas zmany wartości w zmiennje b
+nie wpływa to na wartośc w zmiennej a gdyby String był mutowalny jak np. tablica to zmiana wartości w zmiennej a
+zmieniała by wartośc zmiennej b
