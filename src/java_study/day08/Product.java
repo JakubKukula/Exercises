@@ -15,8 +15,8 @@ public class Product {
     }
 
     public static int countByCategory(List<Product> products, Category category) {
-        if (products == null || products.isEmpty()) {
-            throw new IllegalArgumentException("List cannot be null or empty");
+        if (products == null) {
+            throw new IllegalArgumentException("List cannot be null");
         }
         int count = 0;
         for (Product product : products) {
@@ -33,7 +33,7 @@ public class Product {
         }
         int count = countByCategory(products, category);
         if (count == 0) {
-            throw new IllegalArgumentException("Is 0 products this category");
+            throw new IllegalArgumentException("No products in category: " + category);
         }
         double sum = 0;
         for (Product product : products) {
@@ -48,14 +48,14 @@ public class Product {
         if (products == null || products.isEmpty()) {
             throw new IllegalArgumentException("List cannot be null or empty");
         }
-        Product result = products.getFirst();
+        Product result = null;
         for (Product product : products) {
-            if (product.getCategory() == category && product.getPrice() > result.getPrice()) {
+            if (product.getCategory() == category && (result == null ||product.getPrice() > result.getPrice())) {
                 result = product;
             }
         }
-        if (result.getCategory() != category) {
-            throw new IllegalArgumentException("Is 0 products this category");
+        if (result == null) {
+            throw new IllegalArgumentException("No products in category: " + category);
         }
         return result;
     }

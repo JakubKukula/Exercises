@@ -17,6 +17,9 @@ public class Main {
         products.add(new Product("Kurtka", Category.CLOTHES, 299.00));
         products.add(new Product("T-shirt", Category.CLOTHES, 39.99));
         products.add(new Product("Buty", Category.CLOTHES, 349.50));
+        products.add(new Product("Czapka", null, 34.1));
+
+        System.out.println(Product.countByCategory(products,null));
 
         System.out.println(Product.countByCategory(products,Category.FOOD));
         System.out.println(Product.countByCategory(products,Category.ELECTRONICS));

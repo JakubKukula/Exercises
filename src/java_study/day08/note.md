@@ -13,4 +13,5 @@ System.out.println(result); wypisuje wynik: 4
 
 Zadanie 3 (teoria). Czym różni się tablica int[] od ArrayList<Integer>? Podaj co najmniej dwie różnice.
 1. tablica ma określoną długość i nie można jej zmienić a lista rozciąga sie lub kurczy wraz z dodaniel elementu lub usunięciem
-2. nie wiem
+2. tablica może przechowywać typy prymitywne jak i referencję, a ArrayList tylko obiekty
+3. dostęp poprzez array[i], długość przez pole length, ArrayList elementy przez metody rozmiar przez metodę size().
