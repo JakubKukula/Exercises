@@ -1,7 +1,5 @@
 package java_study.day08.movie;
 
-import javax.smartcardio.CommandAPDU;
-
 public class Main {
     public static void main(String[] args) {
 

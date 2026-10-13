@@ -22,7 +22,7 @@ public class Movie {
         }
         this.genre = genre;
         if (durationMinutes <= 0) {
-            throw new IllegalArgumentException("\"Duration must be positive, got: \" + durationMinutes");
+            throw new IllegalArgumentException("\"Duration must be positive, got: \"" + durationMinutes);
         }
         this.durationMinutes = durationMinutes;
         if (rating < 0 || rating > 10) {
@@ -81,8 +81,9 @@ public class Movie {
         }
         Movie result = null;
         for (Movie movie : movies) {
-            if (movie.getGenre() == genre && (result == null || movie.getRating() > result.getRating())) ;
-            result = movie;
+            if (movie.getGenre() == genre && (result == null || movie.getRating() > result.getRating())) {
+                result = movie;
+            }
         }
         if (result == null) {
             throw new IllegalArgumentException("No movies in genre: " + genre);
@@ -104,7 +105,7 @@ public class Movie {
     }
 
     public static List<Movie> getMovies() {
-        return movies;
+        return new ArrayList<>(movies);
     }
 
     public String getTitle() {
@@ -121,5 +122,10 @@ public class Movie {
 
     public double getRating() {
         return rating;
+    }
+
+    @Override
+    public String toString() {
+        return title + " " + genre + " " + durationMinutes;
     }
 }
