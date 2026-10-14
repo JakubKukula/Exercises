@@ -22,7 +22,7 @@ public class Movie {
         }
         this.genre = genre;
         if (durationMinutes <= 0) {
-            throw new IllegalArgumentException("\"Duration must be positive, got: \"" + durationMinutes);
+            throw new IllegalArgumentException("Duration must be positive, got: " + durationMinutes);
         }
         this.durationMinutes = durationMinutes;
         if (rating < 0 || rating > 10) {
