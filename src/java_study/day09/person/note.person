@@ -1,0 +1,30 @@
+public static Person firstBySurnameWithHairColor(HairColor hairColor) {
+    if (hairColor == null) {
+        throw new IllegalArgumentException("Chose right eye color");
+    }
+    if (extent.isEmpty()) {
+        throw new IllegalArgumentException("List cannot by empty");
+    }
+    Person result = null;
+        for (Person person : extent) {
+            if (person.getHairColor() == hairColor && (result == null || person.getSurname().compareTo(result.getSurname()) < 0)) {
+                result = person;
+            }
+        }
+    return result;
+}
+
+pierwzy warunek sprawdza czy nasz argument jest null
+drugi czy tablica jest pusta
+Person person nie ma zaincjalizowanej wartości
+Pętla for która przechodzi po elementach listy extent
+warunek if (jeżęli person ma taki sam color włosów co podany w argumencie && (result == null || nazwisko po lewej ma
+mniejsze wartości liter idąc od lewej do nazwiska po prawej)){
+w pierwszej iteracji if sprawdza tak naprawdę tylko czy kolor sie zgadza bo result jest null
+w drugie jeżeli color sie zgadza to dopiero sprawdza czy nazwisko jest leksykograficzne
+do zmiennej person zostanie zainicjalizowana piewrsza wartość a potem nadpisana
+
+dla nazwisk (Kowalski, Wójcik, Lewandowska, Szymańska to blondyni) sout zwróci kowalski bo koror sie zgadza
+i leksykograficznie k jest jako pierwsze
+
+Jeżeli chodzi o polskie znaki to przy tym jest problem bo spolskie znaki mają dużą wartośc np. A = 65, Ą = 260
