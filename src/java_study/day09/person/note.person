@@ -16,13 +16,20 @@ public static Person firstBySurnameWithHairColor(HairColor hairColor) {
 
 pierwzy warunek sprawdza czy nasz argument jest null
 drugi czy tablica jest pusta
-Person person nie ma zaincjalizowanej wartości
+Person result nie ma zaincjalizowanej wartości
 Pętla for która przechodzi po elementach listy extent
 warunek if (jeżęli person ma taki sam color włosów co podany w argumencie && (result == null || nazwisko po lewej ma
 mniejsze wartości liter idąc od lewej do nazwiska po prawej)){
 w pierwszej iteracji if sprawdza tak naprawdę tylko czy kolor sie zgadza bo result jest null
 w drugie jeżeli color sie zgadza to dopiero sprawdza czy nazwisko jest leksykograficzne
 do zmiennej person zostanie zainicjalizowana piewrsza wartość a potem nadpisana
+
+Osoba	    BLONDE?	result == null?	compareTo z result	result po kroku
+Kowalski	tak	    tak	            —	                Kowalski
+Nowak	    nie	    —	            —	                Kowalski
+Wiśniewski	nie	    —	            —	                Kowalski
+Wójcik	    tak	    nie	            nie	                Kowalski
+…
 
 dla nazwisk (Kowalski, Wójcik, Lewandowska, Szymańska to blondyni) sout zwróci kowalski bo koror sie zgadza
 i leksykograficznie k jest jako pierwsze

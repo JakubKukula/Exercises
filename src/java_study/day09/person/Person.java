@@ -13,19 +13,19 @@ public class Person {
     private static final List<Person> extent = new ArrayList<>();
 
     public Person(String name, String surname, EyeColor eyeColor, HairColor hairColor) {
-        if (name == null || name.isBlank()){
+        if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
         this.name = name;
-        if (surname == null || surname.isBlank()){
+        if (surname == null || surname.isBlank()) {
             throw new IllegalArgumentException("Surname cannot be null or empty");
         }
         this.surname = surname;
-        if (eyeColor == null){
+        if (eyeColor == null) {
             throw new IllegalArgumentException("Eye color cannot be null");
         }
         this.eyeColor = eyeColor;
-        if (hairColor == null){
+        if (hairColor == null) {
             throw new IllegalArgumentException("Hair color cannot be null");
         }
         this.hairColor = hairColor;
@@ -36,14 +36,14 @@ public class Person {
         return new ArrayList<>(extent);
     }
 
-    public static List<Person> findBeEyeColor(EyeColor eyeColor) {
+    public static List<Person> findByEyeColor(EyeColor eyeColor) {
         if (eyeColor == null) {
-            throw new IllegalArgumentException("Chose right eye color");
-        }
-        if (extent.isEmpty()) {
-            throw new IllegalArgumentException("List cannot be empty");
+            throw new IllegalArgumentException("Choose right eye color");
         }
         List<Person> result = new ArrayList<>();
+        if (extent.isEmpty()) {
+            return result;
+        }
         for (Person person : extent) {
             if (person.getEyeColor() == eyeColor) {
                 result.add(person);
@@ -55,10 +55,10 @@ public class Person {
 
     public static int countByHairColor(HairColor hairColor) {
         if (hairColor == null) {
-            throw new IllegalArgumentException("Chose right eye color");
+            throw new IllegalArgumentException("Choose right eye color");
         }
         if (extent.isEmpty()) {
-            throw new IllegalArgumentException("List cannot be empty");
+            return 0;
         }
         int result = 0;
         for (Person person : extent) {
@@ -71,12 +71,12 @@ public class Person {
 
     public static Person longestSurnameWithEyeColor(EyeColor eyeColor) {
         if (eyeColor == null) {
-            throw new IllegalArgumentException("Chose right eye color");
+            throw new IllegalArgumentException("Choose right eye color");
         }
         if (extent.isEmpty()) {
-            throw new IllegalArgumentException("List cannot be null or empty");
+            throw new IllegalArgumentException("List cannot empty");
         }
-        List<Person> specifiedEyeColor = findBeEyeColor(eyeColor);
+        List<Person> specifiedEyeColor = findByEyeColor(eyeColor);
         if (specifiedEyeColor.isEmpty()) {
             throw new IllegalArgumentException("List is empty");
         }
@@ -91,16 +91,19 @@ public class Person {
 
     public static Person firstBySurnameWithHairColor(HairColor hairColor) {
         if (hairColor == null) {
-            throw new IllegalArgumentException("Chose right eye color");
+            throw new IllegalArgumentException("Choose right eye color");
         }
         if (extent.isEmpty()) {
-            throw new IllegalArgumentException("List cannot by empty");
+            throw new IllegalArgumentException("List cannot be empty");
         }
         Person result = null;
         for (Person person : extent) {
             if (person.getHairColor() == hairColor && (result == null || person.getSurname().compareTo(result.getSurname()) < 0)) {
                 result = person;
             }
+        }
+        if (result == null) {
+            throw new IllegalArgumentException("No one has hair with " + hairColor + " color");
         }
         return result;
     }
