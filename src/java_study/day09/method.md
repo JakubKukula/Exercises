@@ -50,10 +50,22 @@ a dostaje wynik i dodaje 1
 main wypisuje 7
 po return ramka znika
 
-cięzko mi napisać tabelkę więc jak możez rob mi wzróa ja uzupełnie
+Krok	Stos (góra ↑)	    Co się dzieje	     Wartość
+1	    main	            wywołuje a(4)	     —
+2	    a(n=4) / main	    wywołuje b(4), czeka —
+3	    b(n=4) / a / main	4 * 2	             b zwraca 8
+4	    a(n=4) / main	    ramka b znika, 8 + 1 a zwraca 9
+5	    main	            ramka a znika, println	9
 
 5.sout = błąd dorosły dziecko
 
 6.
 parametr to konkretny typ i nazwa (String name), a argument to konkretna wartość("Jan")
 nie da sie przeciązyć metody zmieniając tylko zwracany typ bo java dalej nie jaką metodę wybrać patrząc po argumentach
+
+Drill przeciążenia
+a) void f(int a, String s)   |  void f(String s, int a)  ok
+b) void f(int a)             |  void f(int b)            błąd
+c) void f(int a, int b)      |  void f(int b, int a)     błąd
+d) int f(int a)              |  void f(long a)           ok   
+e) void f(double a)          |  double f(double a)       błąd

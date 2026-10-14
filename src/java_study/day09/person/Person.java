@@ -41,9 +41,6 @@ public class Person {
             throw new IllegalArgumentException("Choose right eye color");
         }
         List<Person> result = new ArrayList<>();
-        if (extent.isEmpty()) {
-            return result;
-        }
         for (Person person : extent) {
             if (person.getEyeColor() == eyeColor) {
                 result.add(person);
@@ -55,10 +52,7 @@ public class Person {
 
     public static int countByHairColor(HairColor hairColor) {
         if (hairColor == null) {
-            throw new IllegalArgumentException("Choose right eye color");
-        }
-        if (extent.isEmpty()) {
-            return 0;
+            throw new IllegalArgumentException("Choose right hair color");
         }
         int result = 0;
         for (Person person : extent) {
@@ -72,9 +66,6 @@ public class Person {
     public static Person longestSurnameWithEyeColor(EyeColor eyeColor) {
         if (eyeColor == null) {
             throw new IllegalArgumentException("Choose right eye color");
-        }
-        if (extent.isEmpty()) {
-            throw new IllegalArgumentException("List cannot empty");
         }
         List<Person> specifiedEyeColor = findByEyeColor(eyeColor);
         if (specifiedEyeColor.isEmpty()) {
@@ -91,10 +82,7 @@ public class Person {
 
     public static Person firstBySurnameWithHairColor(HairColor hairColor) {
         if (hairColor == null) {
-            throw new IllegalArgumentException("Choose right eye color");
-        }
-        if (extent.isEmpty()) {
-            throw new IllegalArgumentException("List cannot be empty");
+            throw new IllegalArgumentException("Choose right hair color");
         }
         Person result = null;
         for (Person person : extent) {
