@@ -60,8 +60,16 @@ public class Employee {
     }
 
     public static Employee firstAlphabetically() {
-        employeeList.sort(Comparator.comparing(Employee::getName));
-        return employeeList.getFirst();
+        if (employeeList.isEmpty()) {
+            throw new IllegalArgumentException("List is empty");
+        }
+        Employee result = employeeList.getFirst();
+        for (Employee employee : employeeList) {
+            if (employee.getName().compareTo(result.getName()) < 0) {
+                result = employee;
+            }
+        }
+        return result;
     }
 
 
