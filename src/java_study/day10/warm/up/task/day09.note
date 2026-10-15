@@ -1,0 +1,32 @@
+R1.
+static int x(int n) {
+    return y(n - 1) * 2;
+}
+static int y(int n) {
+    return n + 10;
+}
+// main: System.out.println(x(4));
+
+Krok	Stos (góra ↑)	Co się dzieje	Wartość
+1	    main	        wywołuje x(4)	—
+2	    x(4) / main	    wywołuje y(3)   —
+3	    y(4) / x / main 3 + 10          y zwraca 13
+4	    x(4) / main     b znika13 * 2   x zwraca 26
+5	    main	        a znika	        sout 26
+
+R2.Drill
+Drill przeciążenia
+a) void f(int a, String s)   |  void f(String s, int a)  ok     inny układ parametrów
+b) void f(int a)             |  void f(int b)            błąd   nazwa zmiennej nie wpływa
+c) void f(int a, int b)      |  void f(int b, int a)     błąd   zamiana nazw ziennych tech nie wpływa
+d) int f(int a)              |  void f(long a)           ok     inny typ przyjmowany jako parametr
+e) void f(double a)          |  double f(double a)       błąd   typ mniennych nie wpływa
+
+R4.
+static void q(long x)   { System.out.println("long"); }
+static void q(double x) { System.out.println("double"); }
+
+q(5);      // long
+q('A');    // long
+q(5.0f);   // double
+q(5L);     // long

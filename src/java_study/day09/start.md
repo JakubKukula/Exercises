@@ -8,7 +8,7 @@ compareTo - porównuje dwa napisy i zwraca liczbę. jeżeli liczba jest ujemna t
 liczba jest 0 to oba są takie same jeżeli zwróci liczbę dodatnią to napis po lewej jest póżniej.
 
 zadanie 2.
-"Ala".compareTo("Ola") = -1
+"Ala".compareTo("Ola") = -14
 "kot".compareTo("kot") = 0
 "Zosia".compareTo("ala") = -7
 "Kasia".compareTo("Kamil") = 6
@@ -30,10 +30,10 @@ bca     3 = 3                  +1 nic nie zmienia      abc
 "kot koc pies"
 word	długość word vs result	compareTo (jeśli równe)	result po kroku
 kot	    3 = 3                  0 nic nie zmienia       kot
-koc     3 = 3                  ujemne                  koc
+koc     3 = 3                  -17                     koc
 pies    4 > 3                  nie                     pies
 
 "kot koc"
 word	długość word vs result	compareTo (jeśli równe)	result po kroku
 kot	    3 = 3                  0 nic nie zmienia       kot
-koc     3 = 3                  ujemne                  koc
+koc     3 = 3                  -17                     koc

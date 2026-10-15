@@ -29,7 +29,7 @@ Kowalski	tak	    tak	            —	                Kowalski
 Nowak	    nie	    —	            —	                Kowalski
 Wiśniewski	nie	    —	            —	                Kowalski
 Wójcik	    tak	    nie	            12	false           Kowalski
-Lewandowaska tak    nie             1   false           Kowalski
+Lewandowska tak    nie             1   false           Kowalski
 Szymańska   tak     nie             8   false           Kowalski
 
 dla nazwisk (Kowalski, Wójcik, Lewandowska, Szymańska to blondyni) sout zwróci kowalski bo koror sie zgadza
