@@ -17,7 +17,7 @@ public class Order {
         }
         this.code = code;
         if (amount <= 0) {
-            throw new IllegalArgumentException("Amount cannot be lest or equals than 0");
+            throw new IllegalArgumentException("Amount must be greater than 0");
         }
         this.amount = amount;
         if (status == null) {
@@ -27,7 +27,7 @@ public class Order {
         extent.add(this);
     }
 
-    public List<Order> getExtent() {
+    public static List<Order> getExtent() {
         return new ArrayList<>(extent);
     }
 
@@ -43,17 +43,13 @@ public class Order {
                 count++;
             }
         }
-        if (sum == 0) {
-            return sum;
-        } else {
-            return sum / count;
+        if (count == 0) {
+            return 0.0;
         }
+        return sum / count;
     }
 
     public static List<Order> above(int threshold) {
-        if (threshold < 1) {
-            throw new IllegalArgumentException("Threshold cannot be less than 0");
-        }
         List<Order> result = new ArrayList<>();
         for (Order order : extent) {
             if (order.getAmount() > threshold) {
@@ -72,9 +68,6 @@ public class Order {
             if (order.getStatus() == status && (result == null || order.getAmount() < result.getAmount())) {
                 result = order;
             }
-        }
-        if (result == null) {
-            throw new IllegalArgumentException("Order with status " + status + " do not exist");
         }
         return result;
     }
