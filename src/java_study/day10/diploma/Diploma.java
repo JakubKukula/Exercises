@@ -1,8 +1,7 @@
 package java_study.day10.diploma;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class Diploma {
 
@@ -10,9 +9,9 @@ public class Diploma {
     private String surname;
     private String issueData;
 
-    private Set<Grade> gradesList = new HashSet<>();
+    private List<Grade> gradesList = new ArrayList<>();
 
-    public Diploma(String name, String surname, String issueData) {
+    public Diploma(String name, String surname) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
@@ -21,34 +20,41 @@ public class Diploma {
             throw new IllegalArgumentException("Surname cannot be null or empty");
         }
         this.surname = surname;
-        this.issueData = issueData;
+        this.issueData = String.valueOf(LocalDateTime.now());
     }
 
     public void addGrade(Grade grade) {
         if (grade == null) {
             throw new IllegalArgumentException("Grade cannot be null");
         }
-        if (!gradesList.add(grade)) {
-            throw new IllegalArgumentException("Grade " + grade + " was already added to the diploma");
+        if (gradesList.contains(grade)) {
+            throw new IllegalArgumentException("Grade " + grade + " was already added");
         }
+        gradesList.add(grade);
     }
 
-    public Diploma bestAverage(List<Diploma> diplomaList) {
+    public double getAverage() {
+        if (gradesList.isEmpty()) {
+            return 0.0;
+        }
+        double sum = 0;
+        for (Grade grade : gradesList) {
+            sum += grade.getGradeValue().getValue();
+        }
+        return sum / gradesList.size();
+    }
+
+    public static Diploma bestAverage(List<Diploma> diplomaList) {
         if (diplomaList == null) {
             throw new IllegalArgumentException("List cannot be null");
         }
         Diploma result = null;
         double bestAverage = 0;
         for (Diploma diploma : diplomaList) {
-            double sum = 0;
-            int counter = 0;
-            for (Grade grade : diploma.getGradesList()) {
-                sum += grade.getGradeValue().getValue();
-                counter++;
-            }
-            double average = sum / counter;
+            double average = diploma.getAverage();
             if (result == null || bestAverage < average) {
                 result = diploma;
+                bestAverage = average;
             }
         }
         return result;
@@ -78,11 +84,11 @@ public class Diploma {
         this.issueData = issueData;
     }
 
-    public Set<Grade> getGradesList() {
-        return gradesList;
+    public List<Grade> getGradesList() {
+        return new ArrayList<>(gradesList);
     }
 
-    public void setGradesList(Set<Grade> gradesList) {
+    public void setGradesList(List<Grade> gradesList) {
         this.gradesList = gradesList;
     }
 
