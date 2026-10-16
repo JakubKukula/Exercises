@@ -46,7 +46,7 @@ public class Main {
         piotr.addGrade(new Grade(Subject.PE,      GradeValue.A));
         diplomas.add(piotr);
 
-        System.out.println(Diploma.bestAverage(diplomas));
+        System.out.println(Diploma.findBestAverage(diplomas));
 
         // Zofia = ?, Anna = ?, Marek = ?, Piotr = ?
         // ślad bestAverage:

@@ -6,11 +6,11 @@ import java.util.List;
 
 public class Diploma {
 
-    private String name;
-    private String surname;
-    private LocalDate issueDate;
+    private final String name;
+    private final String surname;
+    private final LocalDate issueDate;
 
-    private List<Grade> gradesList = new ArrayList<>();
+    private List<Grade> grades = new ArrayList<>();
 
     public Diploma(String name, String surname, LocalDate issueDate) {
         if (name == null || name.isBlank()) {
@@ -31,24 +31,24 @@ public class Diploma {
         if (grade == null) {
             throw new IllegalArgumentException("Grade cannot be null");
         }
-        if (gradesList.contains(grade)) {
+        if (grades.contains(grade)) {
             throw new IllegalArgumentException("Grade " + grade + " was already added");
         }
-        gradesList.add(grade);
+        grades.add(grade);
     }
 
     public double getAverage() {
-        if (gradesList.isEmpty()) {
+        if (grades.isEmpty()) {
             return 0.0;
         }
         double sum = 0;
-        for (Grade grade : gradesList) {
+        for (Grade grade : grades) {
             sum += grade.getGradeValue().getValue();
         }
-        return sum / gradesList.size();
+        return sum / grades.size();
     }
 
-    public static Diploma bestAverage(List<Diploma> diplomaList) {
+    public static Diploma findBestAverage(List<Diploma> diplomaList) {
         if (diplomaList == null) {
             throw new IllegalArgumentException("List cannot be null");
         }
@@ -64,16 +64,24 @@ public class Diploma {
         return result;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public LocalDate getIssueDate() {
+        return issueDate;
+    }
+
     public String getName() {
         return name;
     }
 
     public List<Grade> getGradesList() {
-        return new ArrayList<>(gradesList);
+        return new ArrayList<>(grades);
     }
 
     @Override
     public String toString() {
-        return name + " " + surname + " " + gradesList + " " + issueDate;
+        return name + " " + surname + " " + grades + " " + issueDate;
     }
 }

@@ -1,5 +1,7 @@
 package java_study.day10.diploma;
 
+import java.util.Objects;
+
 public class Grade {
 
     private final Subject subject;
@@ -22,6 +24,17 @@ public class Grade {
 
     public GradeValue getGradeValue() {
         return gradeValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Grade grade)) return false;
+        return subject == grade.subject && gradeValue == grade.gradeValue;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(subject, gradeValue);
     }
 
     @Override
