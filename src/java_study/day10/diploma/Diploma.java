@@ -1,17 +1,18 @@
 package java_study.day10.diploma;
 
-import java.time.LocalDateTime;
-import java.util.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Diploma {
 
     private String name;
     private String surname;
-    private String issueData;
+    private LocalDate issueDate;
 
     private List<Grade> gradesList = new ArrayList<>();
 
-    public Diploma(String name, String surname) {
+    public Diploma(String name, String surname, LocalDate issueDate) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
@@ -20,7 +21,10 @@ public class Diploma {
             throw new IllegalArgumentException("Surname cannot be null or empty");
         }
         this.surname = surname;
-        this.issueData = String.valueOf(LocalDateTime.now());
+        if (issueDate == null) {
+            throw new IllegalArgumentException("Issue date cannot be null");
+        }
+        this.issueDate = issueDate;
     }
 
     public void addGrade(Grade grade) {
@@ -64,36 +68,12 @@ public class Diploma {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getIssueData() {
-        return issueData;
-    }
-
-    public void setIssueData(String issueData) {
-        this.issueData = issueData;
-    }
-
     public List<Grade> getGradesList() {
         return new ArrayList<>(gradesList);
     }
 
-    public void setGradesList(List<Grade> gradesList) {
-        this.gradesList = gradesList;
-    }
-
     @Override
     public String toString() {
-        return name + " " + surname + " " + gradesList + " " + issueData;
+        return name + " " + surname + " " + gradesList + " " + issueDate;
     }
 }

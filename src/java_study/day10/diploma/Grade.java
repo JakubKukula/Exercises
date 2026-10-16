@@ -6,11 +6,11 @@ public class Grade {
     private final GradeValue gradeValue;
 
     public Grade(Subject subject, GradeValue gradeValue) {
-        if (subject == null){
+        if (subject == null) {
             throw new IllegalArgumentException("Subject cannot be null");
         }
         this.subject = subject;
-        if (gradeValue == null){
+        if (gradeValue == null) {
             throw new IllegalArgumentException("Grade value cannot be null");
         }
         this.gradeValue = gradeValue;
