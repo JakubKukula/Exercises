@@ -71,7 +71,7 @@ public class Playlist {
         int longestBeGenre = 0;
         for (Playlist playlist : playlistList) {
             int length = playlist.secondsOfGenre(genre);
-            if (longestBeGenre < length) { // lenght sprawdza też czy dana playlista posiada podany gatunek
+            if (longestBeGenre < length) { // length sprawdza też czy dana playlista posiada podany gatunek
                 result = playlist;
                 longestBeGenre = length;
             }

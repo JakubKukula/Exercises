@@ -14,7 +14,7 @@ public class Song {
         }
         this.title = title;
         if (seconds <= 0) {
-            throw new IllegalArgumentException("Seconds cannot be less than 0");
+            throw new IllegalArgumentException("Seconds must be grater than 0");
         }
         this.seconds = seconds;
         if (genre == null) {
