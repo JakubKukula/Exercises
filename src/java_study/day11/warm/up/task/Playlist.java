@@ -1,7 +1,5 @@
 package java_study.day11.warm.up.task;
 
-import java_study.day10.diploma.Grade;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +10,16 @@ public class Playlist {
     private List<Song> songList = new ArrayList<>();
 
     public Playlist(String name) {
-        if (name == null) {
-            throw new IllegalArgumentException("Name cannot be null");
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
         }
         this.name = name;
     }
 
     public void addSong(Song song) {
+        if (song == null){
+            throw new IllegalArgumentException("Song cannot be null");
+        }
         if (songList.contains(song)) {
             throw new IllegalArgumentException("This song was already added");
         }
@@ -48,7 +49,7 @@ public class Playlist {
 
     public static Playlist longest(List<Playlist> playlistList) {
         if (playlistList == null) {
-            throw new IllegalArgumentException("List cannot be empty");
+            throw new IllegalArgumentException("List cannot be null");
         }
         Playlist result = null;
         int longestPlaylist = 0;
@@ -64,13 +65,13 @@ public class Playlist {
 
     public static Playlist mostOfGenre(List<Playlist> playlistList, Genre genre) {
         if (playlistList == null) {
-            throw new IllegalArgumentException("Genre cannot be null");
+            throw new IllegalArgumentException("List cannot be null");
         }
         Playlist result = null;
         int longestBeGenre = 0;
         for (Playlist playlist : playlistList) {
             int length = playlist.secondsOfGenre(genre);
-            if (result == null || longestBeGenre < length) {
+            if (longestBeGenre < length) { // lenght sprawdza też czy dana playlista posiada podany gatunek
                 result = playlist;
                 longestBeGenre = length;
             }
@@ -82,8 +83,8 @@ public class Playlist {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public List<Song> getSongList() {
+        return new ArrayList<>(songList);
     }
 
     @Override

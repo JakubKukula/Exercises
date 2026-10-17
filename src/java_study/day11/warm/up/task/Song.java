@@ -1,7 +1,5 @@
 package java_study.day11.warm.up.task;
 
-import java_study.day10.diploma.Grade;
-
 import java.util.Objects;
 
 public class Song {
@@ -15,12 +13,12 @@ public class Song {
             throw new IllegalArgumentException("Title cannot be null or empty");
         }
         this.title = title;
-        if (seconds < 0) {
+        if (seconds <= 0) {
             throw new IllegalArgumentException("Seconds cannot be less than 0");
         }
         this.seconds = seconds;
         if (genre == null) {
-            throw new IllegalArgumentException("Grade cannot be null");
+            throw new IllegalArgumentException("Genre cannot be null");
         }
         this.genre = genre;
     }
