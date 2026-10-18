@@ -18,7 +18,7 @@ public class Trip {
         }
         this.name = name;
         if (country == null) {
-            throw new IllegalArgumentException("County cannot be null");
+            throw new IllegalArgumentException("Country cannot be null");
         }
         this.country = country;
         if (price < 0) {
@@ -27,7 +27,15 @@ public class Trip {
         this.price = price;
     }
 
-    public void addAddons(Addon addon) {
+    public double sumAddons() {
+        double result = 0;
+        for (Addon addon : addons) {
+            result += addon.getPrice();
+        }
+        return result;
+    }
+
+    public void addAddon(Addon addon) {
         if (addon == null) {
             throw new IllegalArgumentException("Addon cannot be null");
         }
@@ -38,22 +46,14 @@ public class Trip {
     }
 
     public void addClient(Client client) {
+        if (client == null) {
+            throw new IllegalArgumentException("Client cannot be null");
+        }
         if (clients.contains(client)) {
             throw new IllegalArgumentException("Client " + client + " was already added to the list");
         }
         clients.add(client);
         client.addTrip(this);
-    }
-
-    public Client findWhoSpendMoreMoney(List<Trip> tripList) {
-        if (tripList == null) {
-            throw new IllegalArgumentException("List cannot be null");
-        }
-        Client result = null;
-        double topSpend = 0;
-        for (Trip trip : tripList) {
-
-        }
     }
 
     public String getName() {

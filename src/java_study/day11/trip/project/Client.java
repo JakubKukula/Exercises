@@ -21,12 +21,64 @@ public class Client {
         this.surname = surname;
     }
 
-    public void addTrip(Trip trip){
-        if (trips.contains(trip)){
+    public void addTrip(Trip trip) {
+        if (trip == null) {
+            throw new IllegalArgumentException("Trip caoono be null");
+        }
+        if (trips.contains(trip)) {
             throw new IllegalArgumentException("Trip " + trip + " was already added to the list");
             // ta walidacja nie jest potrzebna?
         }
         trips.add(trip);
+        trip.addClient(this);
+    }
+
+    public double tripsCost() {
+        double result = 0;
+        for (Trip trip : trips) {
+            result += trip.getPrice();
+        }
+        return result;
+    }
+
+    public double addonCost() {
+        double result = 0;
+        for (Trip trip : trips) {
+            result += trip.sumAddons();
+        }
+        return result;
+    }
+
+    public static Client findTopTotalSpender(List<Client> clientList) {
+        if (clientList == null) {
+            throw new IllegalArgumentException("List cannot be null");
+        }
+        Client result = null;
+        double topSpend = 0;
+        for (Client client : clientList) {
+            double spend = client.tripsCost() + client.addonCost();
+            if (topSpend < spend) {
+                result = client;
+                topSpend = spend;
+            }
+        }
+        return result;
+    }
+
+    public static Client findTopAddonSpender(List<Client> clientList) {
+        if (clientList == null) {
+            throw new IllegalArgumentException("List cannot be null");
+        }
+        Client result = null;
+        double topAddonsSpender = 0;
+        for (Client client : clientList) {
+            double addonsCost = client.addonCost();
+            if (topAddonsSpender < addonsCost) {
+                result = client;
+                topAddonsSpender = addonsCost;
+            }
+        }
+        return result;
     }
 
     public String getName() {

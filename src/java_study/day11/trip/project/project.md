@@ -5,5 +5,5 @@ Addon (enum)/ pola name, price
 relacje wiele do wielu Client *<--->* Trip
 
 metody - 
-w trip metoda static Client howSpendMoreMoneyForAddon ()
-w trip metoda static Client howSpendMoreMoneyForAll ()
+w Client metoda static Client howSpendMoreMoneyForAddon ()
+w client metoda static Client howSpendMoreMoneyForAll ()
