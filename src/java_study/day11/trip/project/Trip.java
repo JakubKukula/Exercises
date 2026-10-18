@@ -39,21 +39,20 @@ public class Trip {
         if (addon == null) {
             throw new IllegalArgumentException("Addon cannot be null");
         }
-        if (addons.contains(addon)) {
-            throw new IllegalArgumentException("This " + addon + "  was already added to the list");
-        }
         addons.add(addon);
     }
-
+    // jeżeli będziemy chcieli dodać spain.addClient(anna) drugi raz to metoda sie zacończy odrazu po trips.contains(trip)
+    // bo warunek będzie true i return zakonczy metodę
     public void addClient(Client client) {
         if (client == null) {
             throw new IllegalArgumentException("Client cannot be null");
         }
         if (clients.contains(client)) {
-            throw new IllegalArgumentException("Client " + client + " was already added to the list");
+            return;
         }
         clients.add(client);
         client.addTrip(this);
+
     }
 
     public String getName() {

@@ -20,14 +20,14 @@ public class Client {
         }
         this.surname = surname;
     }
-
+    // jeżeli będziemy chcieli dodać anna.addTrip(spain) drugi raz to metoda sie zacończy odrazu po trips.contains(trip)
+    // bo warunek będzie true i return zakonczy metodę
     public void addTrip(Trip trip) {
         if (trip == null) {
-            throw new IllegalArgumentException("Trip caoono be null");
+            throw new IllegalArgumentException("Trip cannot be null");
         }
         if (trips.contains(trip)) {
-            throw new IllegalArgumentException("Trip " + trip + " was already added to the list");
-            // ta walidacja nie jest potrzebna?
+            return;
         }
         trips.add(trip);
         trip.addClient(this);
@@ -41,7 +41,7 @@ public class Client {
         return result;
     }
 
-    public double addonCost() {
+    public double addonsCost() {
         double result = 0;
         for (Trip trip : trips) {
             result += trip.sumAddons();
@@ -56,7 +56,7 @@ public class Client {
         Client result = null;
         double topSpend = 0;
         for (Client client : clientList) {
-            double spend = client.tripsCost() + client.addonCost();
+            double spend = client.tripsCost() + client.addonsCost();
             if (topSpend < spend) {
                 result = client;
                 topSpend = spend;
@@ -72,7 +72,7 @@ public class Client {
         Client result = null;
         double topAddonsSpender = 0;
         for (Client client : clientList) {
-            double addonsCost = client.addonCost();
+            double addonsCost = client.addonsCost();
             if (topAddonsSpender < addonsCost) {
                 result = client;
                 topAddonsSpender = addonsCost;
