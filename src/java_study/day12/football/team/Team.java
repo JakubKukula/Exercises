@@ -16,6 +16,9 @@ public class Team {
     }
 
     public void addPlayer(Player player) {
+        if (player == null) {
+            throw new IllegalArgumentException("Player cannot be null");
+        }
         if (playerList.contains(player)) {
             throw new IllegalArgumentException("Player " + player + " was already added to the list");
         }
@@ -47,7 +50,7 @@ public class Team {
         }
         return result / count;
     }
-
+    // kandydat: każdy zawodnik na pozycji p, także z 0 bramek
     public Player topScorer(Position p) {
         if (p == null) {
             throw new IllegalArgumentException("Position cannot be null");
@@ -62,7 +65,7 @@ public class Team {
         }
         return result;
     }
-
+    // kandydat: każdy team z listy nawet gdy ma 0 goli
     public static Team bestAttack(List<Team> teams) {
         if (teams == null) {
             throw new IllegalArgumentException("List cannot be null");
@@ -71,7 +74,7 @@ public class Team {
         int topGoalTeam = 0;
         for (Team team : teams) {
             int teamGoal = team.totalGoals();
-            if (topGoalTeam < teamGoal) {
+            if (result == null || topGoalTeam < teamGoal ) {
                 result = team;
                 topGoalTeam = teamGoal;
             }

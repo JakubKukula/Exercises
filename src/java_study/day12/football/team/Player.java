@@ -1,5 +1,7 @@
 package java_study.day12.football.team;
 
+import java.util.Objects;
+
 public class Player {
 
     private final String name;
@@ -31,6 +33,17 @@ public class Player {
 
     public Position getPosition() {
         return position;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Player player)) return false;
+        return goal == player.goal && Objects.equals(name, player.name) && position == player.position;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, goal, position);
     }
 
     @Override
