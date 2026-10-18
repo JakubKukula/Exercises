@@ -20,14 +20,14 @@ public class Main {
 
         List<Team> teams = new ArrayList<>(List.of(lions, eagles));
 
-        /*
-        lions.averageGoals(Position.FORWARD)      = 7
-        eagles.averageGoals(Position.FORWARD)     = 6.5     ← dokładnie
-        eagles.averageGoals(Position.MIDFIELDER)  = 0.0
-        eagles.topScorer(Position.FORWARD)        = Orzeł
-        eagles.topScorer(Position.GOALKEEPER)     = null
-        eagles.topScorer(Position.MIDFIELDER)     = null
-        Team.bestAttack(teams)                    = Lions
+        /*                                                                  poprawka
+        lions.averageGoals(Position.FORWARD)      = 7                       7.0
+        eagles.averageGoals(Position.FORWARD)     = 6.5     ← dokładnie     6.5
+        eagles.averageGoals(Position.MIDFIELDER)  = 0.0                     0.0
+        eagles.topScorer(Position.FORWARD)        = Orzeł                   Orzeł
+        eagles.topScorer(Position.GOALKEEPER)     = null                    Wrona
+        eagles.topScorer(Position.MIDFIELDER)     = null                    null
+        Team.bestAttack(teams)                    = Lions                   Lions
          */
 
         System.out.println(lions.averageGoals(Position.FORWARD));

@@ -22,7 +22,7 @@ public class Team {
         playerList.add(player);
     }
 
-    public int totalGoal() {
+    public int totalGoals() {
         int result = 0;
         for (Player player : playerList) {
             result += player.getGoal();
@@ -35,12 +35,15 @@ public class Team {
             throw new IllegalArgumentException("Position cannot be null");
         }
         double result = 0.0;
-        int count  = 0;
+        int count = 0;
         for (Player player : playerList) {
             if (player.getPosition() == p) {
                 result += player.getGoal();
-                count ++;
+                count++;
             }
+        }
+        if (count == 0) {
+            return 0.0;
         }
         return result / count;
     }
@@ -52,7 +55,7 @@ public class Team {
         Player result = null;
         int topScore = 0;
         for (Player player : playerList) {
-            if (player.getPosition() == p && topScore < player.getGoal()) {
+            if (player.getPosition() == p && (result == null || topScore < player.getGoal())) {
                 result = player;
                 topScore = player.getGoal();
             }
@@ -67,7 +70,7 @@ public class Team {
         Team result = null;
         int topGoalTeam = 0;
         for (Team team : teams) {
-            int teamGoal = team.totalGoal();
+            int teamGoal = team.totalGoals();
             if (topGoalTeam < teamGoal) {
                 result = team;
                 topGoalTeam = teamGoal;

@@ -2,13 +2,22 @@ package java_study.day12.football.team;
 
 public class Player {
 
-    private String name;
-    private int goal;
-    private Position position;
+    private final String name;
+    private final int goal;
+    private final Position position;
 
     public Player(String name, int goal, Position position) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
         this.name = name;
+        if (goal < 0) {
+            throw new IllegalArgumentException("Goal value cannot be less than 0");
+        }
         this.goal = goal;
+        if (position == null) {
+            throw new IllegalArgumentException("Position cannot be null");
+        }
         this.position = position;
     }
 
