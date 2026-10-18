@@ -39,7 +39,44 @@ public class Main {
 
         List<Client> clients = new ArrayList<>(List.of(anna, piotr, ola, marek));
 
+
+
+        /*
+    === 1. WYDATKI (rozpisz sumy) ===
+    Anna:   tripsCost  = italy                 = 6000
+            addonsCost = transfer                 = 150
+    Piotr:  tripsCost  = greece + egypt             = 3500
+            addonsCost = (ALL_INCLUSIVE + GUIDE) + (INSURANCE + DINNER) = 1675
+    Ola:    tripsCost  = egypt + spain             = 4000
+            addonsCost = INSURANCE + DINNER             = 175
+    Marek:  tripsCost  = spain                 = 2500
+            addonsCost =                  = 0
+
+    === 2. ŚLAD findTopAddonSpender ===
+    start: result = null, topAddonsSpender = 0
+    1. Anna:  addonsCost = 150   0 < 150 → true   result = anna   top = 150
+    2. Piotr: addonsCost = 1675   150 < 1675 → true   result = piort   top = 1675
+    3. Ola:   addonsCost = 175   1675 < 175 → false   result = piort   top = 1675
+    4. Marek: addonsCost = 0   1675 < 0 → false   result = piort   top = 1675
+    wynik: Piotr Nowak
+
+    === 3. SYNCHRONIZACJA (przewidywanie → potem uruchom) ===
+    italy.getClients()  = [ Anna Kowalska ]
+    greece.getClients() = [ Piotr Nowak ]
+    egypt.getClients()  = [ Piotr Nowak, Ola Wiśniewska ]     ← dodawane raz od klienta, raz od wycieczki
+    spain.getClients()  = [ Ola Wiśniewska, Marek Wójcik ]
+    piotr.getTrips()    = [ Kreta GREECE 2000.0, Hurghada EGYPT 1500.0 ]
+    ola.getTrips()      = [ Hurghada EGYPT 1500.0, Barcelona SPAIN 2500.0 ]
+    */
+
         System.out.println(Client.findTopTotalSpender(clients)); //Anna Kowalska
         System.out.println(Client.findTopAddonSpender(clients)); //Piotr Nowak
+
+        System.out.println(italy.getClients());
+        System.out.println(greece.getClients());
+        System.out.println(egypt.getClients());
+        System.out.println(spain.getClients());
+        System.out.println(piotr.getTrips());
+        System.out.println(ola.getTrips());
     }
 }

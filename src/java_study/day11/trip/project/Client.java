@@ -20,7 +20,7 @@ public class Client {
         }
         this.surname = surname;
     }
-    // jeżeli będziemy chcieli dodać anna.addTrip(spain) drugi raz to metoda sie zacończy odrazu po trips.contains(trip)
+    // jeżeli będziemy chcieli dodać anna.addTrip(spain) drugi raz to metoda sie zakończy odrazu po trips.contains(trip)
     // bo warunek będzie true i return zakonczy metodę
     public void addTrip(Trip trip) {
         if (trip == null) {

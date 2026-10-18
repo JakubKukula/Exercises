@@ -25,7 +25,7 @@ trips.contains(spain)?   anna.trips = []   → false
 trips.add(spain)         anna.trips = [spain]
 spain.addClient(anna)  #2
 clients.contains(anna)?   spain.clients = [anna]  → true
-return kończy obie metody bo nie dojdzie do wywołania drugiej
+return kończy metod i w drugiej także wynik z contains bedzie true wiec konczy metode
 ← koniec tak
 ← koniec tak
 
