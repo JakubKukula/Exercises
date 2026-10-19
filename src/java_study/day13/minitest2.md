@@ -139,3 +139,102 @@ static int f (int a), static double g (int b)
 w takim przypadku java nie wie którą metodę wybrać poniewać argumenty są identyczne nawet jeżeli nazwa jest inna
 
 koniec 13.15
+
+POPRAWA
+
+A1.
+"Jabkło".compareTo("obiekt")   // -37
+"olek".compareTo("ola")       // 4 liczy dopiero 3 literę
+"ola".compareTo("ola")       // 0
+
+A3.
+int s = 10;
+int c = 3;
+double a = s / c;
+double b = (double) s / c;
+double z = 0.0 / 0; = NaN bo nie mozna dzielić przez 0
+System.out.println(a + " " + b + " " + z);
+
+3.0 3.5 NaN
+
+A4.
+static int f(int n) { 
+    return g(n + 1) * 3; 
+}
+static int g(int n) { 
+    return n - 2; 
+}
+// main:
+System.out.println(f(6));
+
+1. main        woła f(6)
+2. f(n=6)      liczy 6 + 1 = 7, woła g(7), czeka
+3. g(n=7)      liczy 7 − 2 = 5            → g zwraca 5
+4. f(n=5)      ramka g znika, liczy 5 * 3 → f zwraca 15
+5. main        wypisuje 15
+
+B1.  cheapest(products, FOOD)
+start: result = null
+1. Chleb 5 FOOD:   FOOD == FOOD? true   result == null? true            → result = Chleb
+2. Mleko 4 FOOD:   FOOD == FOOD? true   mleko < chleba true             → result = mleko
+3. Ser 4 FOOD:     FOOD == FOOD? true   ser < mleko false               → result = mleko
+4. Pióro 3 OFFICE: OFFICE == FOOD? false                              → result = mleko
+   wynik: mleko
+
+B2.  anna.addTrip(spain)   (wersja: najpierw woła, potem dodaje)
+1. addTrip #1:    trips.contains(spain)?   anna.trips = []    → false   → woła spain.addClient(anna)
+2. addClient #1:  clients.contains(anna)?  spain.clients = [] → false   → woła anna.addTrip(spain)
+3. addTrip #2:    trips.contains(spain)?   anna.trips = []    → false   → woła spain.addClient(anna)
+4. addClient #2:  clients.contains(anna)?  spain.clients = [] → false   → woła anna.addTrip(spain)
+   ... i tak dalej, bo linijki ? nigdy się nie wykonują
+   błąd: brak dodani do listy przed wywołaniem kolejnej metody i tak samo w drugiej metodzie
+   naprawa: najpiersz dodanie do listy a potem wywołanie drugiej
+
+E1. samo final →zmienna deklarowana i zainicjalizowna w polu lub konstruktorze bez metody set ile kopii: tyle samo ile obiektów 
+    static final zmenna zainicjalizowana w polu ile kopii: jedna dla wszystkich obiektów   dlatego: żeby nie tworzyć dla 
+    każdego obiektu dodadkowej zmiennej 
+E2. 'B' to char; nie ma m(char), więc char → int  → long (najbliższe poszerzenie)
+E4. metoda powinna być static, gdy chcemy wywoałać ja na polu staycznym bez stworzonego obiektu
+E5.
+byte f(int a) { return a + 2 }
+long f(int a) { return a + 2 }
+f(5);   ← dla java obie metody działają tak samo 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
