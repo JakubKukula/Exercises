@@ -76,7 +76,10 @@ public class Main {
 
     public static int countDivisible(int from, int to, int k) {
         if (from > to) {
-            throw new IllegalArgumentException("From cannot be greater for to");
+            return 0;
+        }
+        if (k == 0){
+            throw new IllegalArgumentException("K cannot be 0");
         }
         int count = 0;
         for (int i = from; i <= to; i++) {

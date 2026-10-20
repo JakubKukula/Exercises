@@ -1,6 +1,6 @@
 S1.
-NaN
-wyjatek
+NaN x  -> Infinity v
+wyjatek- ArithmeticException
 
 S2.
 B66 - a97 = -31 B jest przed a
@@ -16,9 +16,11 @@ wracamy do p    10 - 1                      9         sout(9)  -> metoda p sie z
 
 S4.
 kiedy metoda nie dotyka żadnego obiektu
+lepiej (Metoda jest static, gdy nie używa pól ani metod tego obiektu (this))
 
 S5.
-średniodużo
+średniodużo 
+samo średnio bo -> wskazuje na jeden wynik i nie przechodzi dalej nawet bez break
 
 S6.
 a) warunek zwróci false i blok sie nie wykona
@@ -36,7 +38,7 @@ for (int i = 1; i <= 10; i += 3) { ... }
 7
 10
 13 warunek false pętla sie zamyka przed wykonianiem bloku kodu dla warunku true
-pętla wykona sie 5 razy
+pętla wykona sie 5 razy (4)!
 
 
 

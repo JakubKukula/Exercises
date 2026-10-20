@@ -43,7 +43,6 @@ public class Main {
         if (s == null) {
             throw new IllegalArgumentException("Text cannot be null");
         }
-        s = s.trim();
         boolean isPalindrome = true;
         int j = s.length() - 1;
         for (int i = 0; i < s.length() / 2; i++) {
