@@ -19,7 +19,7 @@ public class Main {
         System.out.println(isPrime(2)); // true
         System.out.println(isPrime(9)); // false
         System.out.println(isPrime(17)); // true
-        System.out.println(countDivisible(1, 10, 3)); //0
+        System.out.println(countDivisible(1, 10, 3)); // 3
         System.out.println(countDivisible(3, 3, 3)); // 1
         //System.out.println(countDivisible(10, 1, 2)); // IllegalArgumentException: From cannot be greater for to
         System.out.println(average(1, 2, 2)); // 1.6666666666666667
@@ -27,9 +27,16 @@ public class Main {
         System.out.println("Arrays");
         System.out.println(max(new int[]{3, 8, 1}));            // 8
         System.out.println(max(new int[]{-5, -2, -9}));         // -2
+        /*
+        arr[i]   cyfra  >  max   max =
+        -5        -5       -5      -5
+        -2        -2       -5      -2
+        -9        -9       -2      -2
+        return -2
+         */
         System.out.println(indexOfLast(new int[]{4, 7, 4, 1}, 4));   // 2
         System.out.println(indexOfLast(new int[]{4, 7, 4, 1}, 9));   // -1
-        //System.out.println(isSorted(new int[]{}));              // IllegalArgumentException: Array cannot be null or empty
+        System.out.println(isSorted(new int[]{}));              // true
         System.out.println(isSorted(new int[]{1, 2, 2, 3}));    // true
         System.out.println(isSorted(new int[]{1, 3, 2}));       // false
 
@@ -53,7 +60,7 @@ public class Main {
     }
 
     public static boolean isPrime(int n) {
-        if (n < 1) {
+        if (n < 2) {
             return false;
         }
         boolean isPrime = true;
@@ -73,7 +80,7 @@ public class Main {
         }
         int count = 0;
         for (int i = from; i <= to; i++) {
-            if (from % k == 0) {
+            if (i % k == 0) {
                 count++;
             }
         }
@@ -113,7 +120,7 @@ public class Main {
     }
 
     public static boolean isSorted(int[] arr) {
-        if (arr == null || arr.length == 0) {
+        if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null or empty");
         }
         boolean isSorted = true;
@@ -139,6 +146,7 @@ public class Main {
         return result;
     }
     // koniec - 14.50
+
 
 
 }
