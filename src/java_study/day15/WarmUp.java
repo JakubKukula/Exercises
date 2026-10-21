@@ -2,8 +2,8 @@ package java_study.day15;
 
 import java.util.Arrays;
 
-public class warmUp {
-    static void main(String[] args) {
+public class WarmUp {
+    public static void main(String[] args) {
 
         System.out.println(repeat("ab", 3));                 // ababab
         System.out.println(repeat("x", 0));                  //
@@ -20,7 +20,7 @@ public class warmUp {
          */
         System.out.println(compress("abc"));                    // a1b1c1
         System.out.println(compress(""));                       //
-        System.out.println(compressRuns("aabaa"));              //a2b2a2c2
+        System.out.println(compressRuns("aabaa"));              //a2b1a2
         System.out.println(capitalize("jAVA"));                 // Java
         System.out.println(capitalize("a"));                    // A
         System.out.println(capitalize(""));                     //
