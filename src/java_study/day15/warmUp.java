@@ -20,6 +20,7 @@ public class warmUp {
          */
         System.out.println(compress("abc"));                    // a1b1c1
         System.out.println(compress(""));                       //
+        System.out.println(compressRuns("aabaa"));              //a2b2a2c2
         System.out.println(capitalize("jAVA"));                 // Java
         System.out.println(capitalize("a"));                    // A
         System.out.println(capitalize(""));                     //
@@ -63,19 +64,34 @@ public class warmUp {
         return result;
     }
 
-    public static String capitalize(String s) {
+    public static String compressRuns(String s) {
         if (s == null) {
             throw new IllegalArgumentException("s cannot be null");
         }
         String result = "";
+
+        int count = 1;
         for (int i = 0; i < s.length(); i++) {
-            String sign = String.valueOf(s.charAt(i));
-            if (i == 0) {
-                result = sign.toUpperCase();
-                continue;
+            char sign = s.charAt(i);
+            if ((i + 1) < s.length() && sign == s.charAt(i + 1)) {
+                count++;
+            } else {
+                result += String.valueOf(sign) + count;
+                count = 1;
             }
-            result += sign.toLowerCase();
         }
+        return result;
+    }
+
+    public static String capitalize(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException("s cannot be null");
+        }
+        if (s.isEmpty()) {
+            return "";
+        }
+        String result = "";
+        result = s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
         return result;
     }
 
@@ -86,8 +102,8 @@ public class warmUp {
         if (a.length() != b.length()) {
             return false;
         }
-        String[] arrayA = a.trim().split("");
-        String[] arrayB = b.trim().split("");
+        String[] arrayA = a.split("");
+        String[] arrayB = b.split("");
 
         Arrays.sort(arrayA);
         Arrays.sort(arrayB);

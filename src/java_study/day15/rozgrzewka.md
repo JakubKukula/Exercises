@@ -1,6 +1,6 @@
 R1.
-System.out.println(0.0 / 0); Infinity
-System.out.println(-5.0 / 0);   Infinity
+System.out.println(0.0 / 0); Infinity  // ile razy 0 mieści sie w zero = NaN
+System.out.println(-5.0 / 0); Infinity // coś dzieli sie przez coś nieskończenie wiele razy - Infinity
 System.out.println(5 / 0);  ArithmeticException
 R2.
 // A
@@ -22,13 +22,14 @@ for (int i = 10; i > 0; i -= 4) { ... }
 i       warunek     i-=4    iteracja
 10       true        6          1
 6        true        2          2
-2        false = ta iteracja sie nie wykona 
-pętla wykona sie 2 razy
+2        true        -2         3
+-2       false konieć pętli
+pętla wykona sie 3 razy
 R4.
 static - jedna kopia, można uruchomić bez obiektu, nie dotyka zadnego pola obiektu
-Diploma.getAverage() - static bo metoda jest wywoływana na klasie
-Diploma.findBestAverage(List<Diploma>) - tak samo to
-Client.addonsCost() - tak samo to
+Diploma.getAverage() - metoda nie ststatic bo dodtyka pola klasy Diploma
+Diploma.findBestAverage(List<Diploma>) - static bo metoda nie dodtyka żadnego obiektu 
+Client.addonsCost() - metoda nie static dotyka pola klasy Client
 R5.
 79 - 111 = -32 / O jest przed o
 
