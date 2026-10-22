@@ -5,8 +5,8 @@ tekst: "abc123x"     wzorzec: \d+
 matches()  → czy CAŁY tekst pasuje do wzorca?        "abc123x" ≠ same cyfry → false
 find()     → czy GDZIEŚ w tekście jest fragment?      znajduje "123"         → true
 
-W java jak chcemy żeby do regexa trafiła konkretny znak piszemy np.(\\! - ma być konkretnie wykrzyknik) i analogicznie
-wszyskie tego typu przypadki tak samo : \\d, \\., \\w.
+W java jak chcemy żeby do regexa trafiła konkretny znak piszemy np.(\\d - ma być konkretnie liczba) i analogicznie
+wszyskie tego typu przypadki tak samo : \\d, \\w dla (.) \\. odbiera jej specjalne znaczenie 
 
 M1: matches sprawdza CAŁY tekst
 System.out.println("abc123".matches("[a-z]+\\d+"));    // true
