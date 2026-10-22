@@ -8,6 +8,7 @@ public enum TrafficLight {
             return GREEN;
         }
 
+        @Override
         public boolean canGo() {
             return false;
         }
@@ -18,6 +19,7 @@ public enum TrafficLight {
             return RED;
         }
 
+        @Override
         public boolean canGo() {
             return false;
         }
@@ -29,6 +31,7 @@ public enum TrafficLight {
             return YELLOW;
         }
 
+        @Override
         public boolean canGo() {
             return true;
         }
