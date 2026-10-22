@@ -32,6 +32,19 @@ public class WarmUp {
         System.out.println(isValidEmail("jan@gmailxcom"));            // false   ← uwaga
         System.out.println(isValidEmail("jan@@gmail.com"));           // false
 
+        System.out.println(countNumbers("Ala ma 2 koty i 15 rybek"));   // 2
+        /*
+        digit.find      count
+        2             1
+        15            2
+        */
+        System.out.println(countNumbers("123"));                        // 1
+        System.out.println(countNumbers("a1b22c333"));                  // 3
+
+        System.out.println(isValidEmail(null));              // false
+        System.out.println(isValidEmail("jan@gm4il.com"));   // false
+        System.out.println(isValidEmail("jan@gmail.c0m"));   // false
+
     }
 
     // Wejściówka #10: walidacja regexem start - 15.50
@@ -61,7 +74,7 @@ public class WarmUp {
         if (text == null) {
             throw new IllegalArgumentException("Text cannot be null");
         }
-        Matcher digit = Pattern.compile("\\d").matcher(text);
+        Matcher digit = Pattern.compile("\\d+").matcher(text);
         int count = 0;
         while (digit.find()) {
             count++;
@@ -75,9 +88,9 @@ public class WarmUp {
 
     public static boolean isValidEmail(String s) {
         if (s == null) {
-            throw new IllegalArgumentException("Email cannot be null");
+            return false;
         }
-        return s.matches("[\\w.]+@\\w+\\.\\w{2,3}");
+        return s.matches("[\\w.]+@[a-zA-Z]+\\.[a-zA-Z]{2,3}");
     }
 
     // koniec 19.35
