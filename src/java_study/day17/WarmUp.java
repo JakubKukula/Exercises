@@ -21,7 +21,7 @@ public class WarmUp {
         koty            3
         metoda nie zakładał w poleceniu użycia group() tylko policzenia ilości słów
          */
-        System.out.println(countWords("Ala-ma-kota"));          // 0
+        System.out.println(countWords("Ala-ma-kota"));          // 3
         System.out.println(countWords("123 456"));              // 0
         System.out.println(countWords(""));                     // 0
 
@@ -61,7 +61,7 @@ public class WarmUp {
         if (s == null) {
             return false;
         }
-        return s.matches("[0-1]\\d-[0-5]\\d|2[0-3]-[0-5]\\d");
+        return s.matches("[0-1]\\d:[0-5]\\d|2[0-3]:[0-5]\\d");
     }
 
     public static String maskDigits(String s) {

@@ -5,9 +5,9 @@ System.out.println(-5 / 0.0);   // -Infinity
 System.out.println(5 % 0);      // ArithmeticException
 
 F2.
-Diploma.getAverage() - ta metoda używa pola np. ceny danego obiektu, sumuje je i dzieli przez ich ilość
-Order.cheapestWithStatus(Status status) (z wejściówki #3, ta z static extent) - przechodząc po liście porównuje 
-status z polem obkiektu na którym jest określony status 
+Diploma.getAverage() - instancyjna ta metoda używa pola np. ceny danego obiektu, sumuje je i dzieli przez ich ilość
+Order.cheapestWithStatus(Status status) (z wejściówki #3, ta z static extent) - static przechodząc po statycznej liście 
+porównuje status obkiektu na którym jest określony status 
 Song.getSeconds() - zwraca pole obiektu które przechowuje wartość (długośc piosenki w sekundach)
 Team.bestAttack(List<Team> teams) - na nie dotyka żadnego pola przechodzi poliście teamów i sprawdza która ma najwiecej 
 goli
@@ -26,7 +26,8 @@ do {
 k++;
 } while (k < 5);
 System.out.println(k);                     
-// obrotów: 0   wypisze: 11
+// obrotów: 1   wypisze: 11
+!!! do-while zawsze wykona jeden obrót a jeżeli while jest true wykona sie następny obrót
 
 F4.
 String x = "ab";
