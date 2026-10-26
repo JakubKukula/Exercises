@@ -15,15 +15,15 @@ public class WarmUp {
         System.out.println(parseIntOrNull(null));         // null
         System.out.println(parseIntOrNull("1234567890")); // null
 
-        System.out.println(parseAmount("12"));      // 12
+        System.out.println(parseAmount("12"));      // 12.0
         System.out.println(parseAmount("12.5"));    // 12.5
         System.out.println(parseAmount("12,50"));   // 12.5
         // parseAmount("12,505") → "Wrong amount number"
         // parseAmount("abc")    → "Wrong amount number"
 
-        System.out.println(confirmText(JOptionPane.YES_OPTION));      // YES
-        System.out.println(confirmText(JOptionPane.CLOSED_OPTION));   // CLOSED
-        System.out.println(confirmText(JOptionPane.CANCEL_OPTION));   // CANCEL
+        System.out.println(confirmText(JOptionPane.YES_OPTION));      // TAK
+        System.out.println(confirmText(JOptionPane.CLOSED_OPTION));   // ZAMKNIETE
+        System.out.println(confirmText(JOptionPane.CANCEL_OPTION));   // ANULOWANO
 
         System.out.println(isYes("TAK"));     // true
         System.out.println(isYes(" t "));     // true
@@ -38,7 +38,7 @@ public class WarmUp {
             return null;
         }
         String trimmed = s.trim();
-        if (!trimmed.matches("(-|\\+)\\d{1,9}")) {
+        if (!trimmed.matches("[-+]?\\d{1,9}")) {
             return null;
         }
         return Integer.parseInt(trimmed);
@@ -48,35 +48,28 @@ public class WarmUp {
         if (s == null || s.isBlank()) {
             throw new IllegalArgumentException("Amount cannot be null or empty");
         }
-        if (!s.matches("\\d{2}|\\d{2}\\.\\d{0,2}|\\d{2},\\d{0,2}")) {
+        if (!s.matches("\\d+|\\d+\\.\\d{1,2}|\\d+,\\d{1,2}")) {
             throw new IllegalArgumentException("Wrong amount number");
         }
         return Double.parseDouble(s.replace(',', '.'));
     }
 
     public static String confirmText(int option) {
-        if (option == 0) {
-            return "YES";
-        } else if (option == 1) {
-            return "NO";
-        } else if (option == 2) {
-            return "CANCEL";
-        } else if (option == -1) {
-            return "CLOSED";
-        } else {
-            throw new IllegalArgumentException("don't confirmed any option");
-        }
+        return
+                switch (option) {
+                    case JOptionPane.YES_OPTION -> "TAK";
+                    case JOptionPane.NO_OPTION -> "NIE";
+                    case JOptionPane.CANCEL_OPTION -> "ZAMKNIETO";
+                    case JOptionPane.CLOSED_OPTION -> "ANULOWANO";
+                    default -> "Unknown option: " + option;
+                };
     }
 
     public static boolean isYes(String answer) {
         if (answer == null) {
             return false;
         }
-        String argument = answer.trim().toLowerCase();
-        Matcher yes = Pattern.compile("yes|y|tak|t").matcher(argument);
-        while (yes.find()) {
-            return true;
-        }
-        return false;
+        answer = answer.trim().toLowerCase();
+        return answer.matches("tak|t|yes|y");
     }
 }
