@@ -1,8 +1,6 @@
 package java_study.day19;
 
 import javax.swing.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class WarmUp {
     public static void main(String[] args) {
@@ -59,9 +57,9 @@ public class WarmUp {
                 switch (option) {
                     case JOptionPane.YES_OPTION -> "TAK";
                     case JOptionPane.NO_OPTION -> "NIE";
-                    case JOptionPane.CANCEL_OPTION -> "ZAMKNIETO";
-                    case JOptionPane.CLOSED_OPTION -> "ANULOWANO";
-                    default -> "Unknown option: " + option;
+                    case JOptionPane.CANCEL_OPTION -> "ANULUJ";
+                    case JOptionPane.CLOSED_OPTION -> "ZAMKNIĘTO";
+                    default -> throw new IllegalArgumentException("Unknown option: " + option);
                 };
     }
 
