@@ -45,12 +45,13 @@ public enum Shape {
         }
     }
 
-    public static double largest(double a) {
-        double[] values = {CIRCLE.area(a), SQUARE.area(a), TRIANGLE.area(a)};
-        double result = 0;
-        for (double value : values) {
-            if (value > result) {
-                result = value;
+    public static Shape largest(double a) {
+        Shape result = null;
+        double largestValue = 0;
+        for (Shape shape : Shape.values()) {
+            if (shape.area(a) > largestValue || result == null) {
+                result = shape;
+                largestValue = shape.area(a);
             }
         }
         return result;

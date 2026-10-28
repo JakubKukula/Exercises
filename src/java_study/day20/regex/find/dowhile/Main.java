@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(isValidPhone("123-456-789"));        // true
+        System.out.println(isValidPhone("+48 123-456-789"));        // true
         System.out.println(isValidPhone("+48 123456789"));      // true
         System.out.println(isValidPhone("123-456789"));         // false
         System.out.println(isValidPhone("12345678"));           // false
@@ -24,7 +24,7 @@ public class Main {
         if (phone == null) {
             return false;
         }
-        return phone.matches("(\\+48) \\d{9}|\\d{3}-\\d{3}-\\d{3}");
+        return phone.matches("(\\+48) \\d{9}|(\\+48) \\d{3}-\\d{3}-\\d{3}");
     }
 
     public static int sumNumbersInText(String text) {

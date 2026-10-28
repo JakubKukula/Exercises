@@ -20,7 +20,7 @@ public class Product {
     public static Product cheapestAvailable(List<Product> products, String category) {
         Product result = null;
         for (Product product : products) {
-            if (product.getCategory().equals(category) && (result == null || result.getPrice() > product.getPrice())) {
+            if (product.getCategory().equals(category) && product.available && (result == null || result.getPrice() > product.getPrice())) {
                 result = product;
             }
         }

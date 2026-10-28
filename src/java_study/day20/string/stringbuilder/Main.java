@@ -44,7 +44,12 @@ public class Main {
             if (textBoard[i].isBlank()) {
                 continue;
             }
-            result += textBoard[i] + " ";
+            if (i != 0) {
+                result += textBoard[i] + " ";
+            } else {
+                result += textBoard[i];
+            }
+
         }
         return result;
     }
@@ -53,7 +58,7 @@ public class Main {
         if (text == null) {
             return 0;
         }
-        char[] vowels = {'a', 'b', 'i', 'o', 'u', 'y'};
+        char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
         int count = 0;
         String textLower = text.toLowerCase();
         for (int i = 0; i < textLower.length(); i++) {
