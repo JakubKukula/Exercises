@@ -20,8 +20,8 @@ public class WarmUp {
         // parseAmount("abc")    → "Wrong amount number"
 
         System.out.println(confirmText(JOptionPane.YES_OPTION));      // TAK
-        System.out.println(confirmText(JOptionPane.CLOSED_OPTION));   // ZAMKNIETE
-        System.out.println(confirmText(JOptionPane.CANCEL_OPTION));   // ANULOWANO
+        System.out.println(confirmText(JOptionPane.CLOSED_OPTION));   // ZAMKNIĘTO
+        System.out.println(confirmText(JOptionPane.CANCEL_OPTION));   // ANULUJ
 
         System.out.println(isYes("TAK"));     // true
         System.out.println(isYes(" t "));     // true
