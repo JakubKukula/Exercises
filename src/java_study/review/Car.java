@@ -3,8 +3,8 @@ package java_study.review;
 public class Car {
 
     private String name;
-    final Fuel fuel;
-    static int count;
+    private final Fuel fuel;
+    private static int count;
 
     public Car(String name, Fuel fuel) {
         this.name = name;
@@ -24,7 +24,7 @@ public class Car {
         return fuel;
     }
 
-    public int getCount() {
+    public static int getCount() {
         return count;
     }
 }
