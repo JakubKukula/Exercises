@@ -12,13 +12,13 @@ public class Main {
         products.add(new Product("Masło", 3.5, "FOOD", false));
         products.add(new Product("Mydło", 6.0, "HOME", true));
 
-        System.out.println(Product.cheapestAvailable(products, "FOOD"));    // Masło
+        System.out.println(Product.cheapestAvailable(products, "FOOD"));    // Mleko
         /*
         iteracja    warunek                             result
         1           catrgoria true && null true         Mleko
-        2           true && false                       Mleko
-        3           true && true                        Mydło
-        4           false                               Mydło
+        2           true true && false                  Mleko
+        3           true false && true                   Mleko
+        4           false                               Mleko
         koniec petli
          */
         System.out.println(Product.cheapestAvailable(products, "HOME"));    // Mydło

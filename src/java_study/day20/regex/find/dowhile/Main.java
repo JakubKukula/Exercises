@@ -24,7 +24,7 @@ public class Main {
         if (phone == null) {
             return false;
         }
-        return phone.matches("(\\+48) \\d{9}|(\\+48) \\d{3}-\\d{3}-\\d{3}");
+        return phone.matches("[+48]? \\d{9}[+48]? \\d{3}-\\d{3}-\\d{3}");
     }
 
     public static int sumNumbersInText(String text) {

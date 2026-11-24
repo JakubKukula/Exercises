@@ -5,16 +5,16 @@ public enum Shape {
         @Override
         public double area(double a) {
             if (a <= 0) {
-                throw new IllegalArgumentException("Number cannot be less than 0");
+                throw new IllegalArgumentException("Number must be greater than 0");
             }
-            return (a * a) * 3.14159;
+            return (a * a) * Math.PI;
         }
     },
     SQUARE {
         @Override
         public double area(double a) {
             if (a <= 0) {
-                throw new IllegalArgumentException("Number cannot be less than 0");
+                throw new IllegalArgumentException("Number must be greater than 0");
             }
             return a * a;
         }
@@ -23,7 +23,7 @@ public enum Shape {
         @Override
         public double area(double a) {
             if (a <= 0) {
-                throw new IllegalArgumentException("Number cannot be less than 0");
+                throw new IllegalArgumentException("Number must be greater than 0");
             }
             return (Math.sqrt(3) * a * a) / 4;
         }
