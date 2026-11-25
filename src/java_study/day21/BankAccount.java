@@ -3,7 +3,7 @@ package java_study.day21;
 public class BankAccount {
 
     private final String owner;
-    private static int number = 1000; // bo ilośc kont mam widzieć każde założone konto i mieć większą o 1
+    private static int accountCount = 1000; // bo ilośc kont mam widzieć każde założone konto i mieć większą o 1
     private final int uniqueNumber;
     private double balance = 0.0;
     private final double maxWithdrawal;
@@ -13,12 +13,12 @@ public class BankAccount {
             throw new IllegalArgumentException("You must enter the owner");
         }
         this.owner = owner;
-        this.uniqueNumber = number;
+        this.uniqueNumber = accountCount;
         if (maxWithdrawal < 0) {
             throw new IllegalArgumentException("Enter correct max withdrawal");
         }
         this.maxWithdrawal = maxWithdrawal;
-        number++;
+        accountCount++;
     }
 
     public void deposit(double amount) {
@@ -29,7 +29,13 @@ public class BankAccount {
     }
 
     public boolean withdraw(double amount) {
-        if (amount > balance || amount > maxWithdrawal || amount <= 0) {
+        if (amount > maxWithdrawal) {
+            return false;
+        }
+        if (amount > balance) {
+            return false;
+        }
+        if (amount <= 0) {
             return false;
         }
         balance -= amount;
@@ -40,8 +46,8 @@ public class BankAccount {
         return owner;
     }
 
-    public static int getNumber() { // bo pole number jest static i żeby można było sparawdzić ilośc kont bez tworzenia obiektu
-        return number - 1000;
+    public static int getAccountCount() { // bo pole number jest static i żeby można było sparawdzić ilośc kont bez tworzenia obiektu
+        return accountCount - 1000;
     }
 
     public int getUniqueNumber() {
