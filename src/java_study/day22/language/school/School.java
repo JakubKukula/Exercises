@@ -4,29 +4,23 @@ import java.util.*;
 
 public class School {
 
-    private List<Course> courseList = new ArrayList<>();
+    private List<Course> courseList;
 
     public School(List<Course> courseList) {
         this.courseList = new ArrayList<>(courseList);
     }
 
-    public Map<Languages, List<Student>> overview(List<Course> courses) {
-        Map<Languages, List<Student>> result = new TreeMap<>();
-        for (Course course : courses) {
-            Languages language = course.getLanguages();
-            if (!result.containsKey(language)) {
-                result.put(language, new ArrayList<>());
-            }
-            for (Student student : course.getStudents()) {
-                result.get(language).add(student);
-            }
+    public Map<Languages, Integer> overview() {
+        Map<Languages, Integer> result = new TreeMap<>();
+        for (Course course : courseList) {
+            result.put(course.getLanguages(), result.getOrDefault(course.getLanguages(), 0) + 1);
         }
         return result;
     }
 
-    public Set<Student> students(List<Course> courses) {
+    public Set<Student> students() {
         Set<Student> result = new HashSet<>();
-        for (Course course : courses) {
+        for (Course course : courseList) {
             result.addAll(course.getStudents());
         }
         return result;

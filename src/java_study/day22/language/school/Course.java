@@ -8,12 +8,11 @@ public class Course {
     private String name;
     private final Languages languages;
     private final int maxStudent;
-    private final int courseNumber;
     private static int countCourses = 0;
 
     private Set<Student> students = new HashSet<>();
 
-    public Course(String name, Languages languages, int maxStudent, int courseNumber) {
+    public Course(String name, Languages languages, int maxStudent) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Enter curse name");
         }
@@ -24,18 +23,17 @@ public class Course {
         }
         this.maxStudent = maxStudent;
         countCourses++;
-        this.courseNumber = countCourses;
     }
 
     public boolean addStudent(Student student) {
+        if (students.contains(student)) {
+            return true;
+        }
         if (students.size() == maxStudent) {
             return false;
         }
-        if (!students.add(student)) {
-            return false;
-        }
         students.add(student);
-        student.addCurse(this);
+        student.addCourse(this);
         return true;
     }
 
@@ -49,10 +47,6 @@ public class Course {
 
     public int getMaxStudent() {
         return maxStudent;
-    }
-
-    public int getCourseNumber() {
-        return courseNumber;
     }
 
     public static int getCountCourses() {

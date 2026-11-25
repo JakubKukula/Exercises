@@ -7,7 +7,7 @@ import java.util.Set;
 public class Student {
 
     private String name;
-    private String email;
+    private final String email;
 
     private Set<Course> courses = new HashSet<>();
 
@@ -19,15 +19,18 @@ public class Student {
         if (email == null || email.isBlank()) {
             throw new IllegalArgumentException("Enter true email");
         }
-        checkEmail(email);
+        if (!checkEmail(email)){
+            throw new IllegalArgumentException("Incorrect email");
+        }
         this.email = email;
     }
 
-    public boolean addCurse(Course course) {
-        if (course.getStudents().size() == course.getMaxStudent()) {
-            return false;
+    public boolean addCourse(Course course) {
+        if (courses.contains(course)) {
+            return true;
         }
-        if (!courses.add(course)) {
+        boolean courseHasMe = course.getStudents().contains(this);
+        if (!courseHasMe && course.getStudents().size() == course.getMaxStudent()) {
             return false;
         }
         courses.add(course);
@@ -35,10 +38,10 @@ public class Student {
         return true;
     }
 
-    public double cursesPrice() {
+    public double coursesPrice() {
         double sum = 0;
         for (Course course : courses) {
-            sum += course.getLanguages().getPrizePreMonth();
+            sum += course.getLanguages().getPricePreMonth();
         }
         return sum;
     }
@@ -46,7 +49,7 @@ public class Student {
     public boolean checkEmail(String email) {
         String normalize = email.trim().toLowerCase();
         int at = normalize.indexOf("@");
-        return at == 0 || at == normalize.length() - 1 && at == normalize.lastIndexOf("@");
+        return at != 0 || at != normalize.length() - 1 && at == normalize.lastIndexOf("@");
     }
 
     public String getName() {

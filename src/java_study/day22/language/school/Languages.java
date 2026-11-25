@@ -5,13 +5,13 @@ public enum Languages {
     GERMAN(120.00),
     SPANISH(150.00);
 
-    private final double prizePreMonth;
+    private final double pricePreMonth;
 
     Languages(double prizePreMonth) {
-        this.prizePreMonth = prizePreMonth;
+        this.pricePreMonth = prizePreMonth;
     }
 
-    public double getPrizePreMonth() {
-        return prizePreMonth;
+    public double getPricePreMonth() {
+        return pricePreMonth;
     }
 }
