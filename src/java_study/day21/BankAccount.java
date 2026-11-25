@@ -14,11 +14,11 @@ public class BankAccount {
         }
         this.owner = owner;
         this.uniqueNumber = number;
-        number++;
         if (maxWithdrawal < 0) {
             throw new IllegalArgumentException("Enter correct max withdrawal");
         }
         this.maxWithdrawal = maxWithdrawal;
+        number++;
     }
 
     public void deposit(double amount) {
@@ -29,7 +29,7 @@ public class BankAccount {
     }
 
     public boolean withdraw(double amount) {
-        if (amount > balance || amount > maxWithdrawal) {
+        if (amount > balance || amount > maxWithdrawal || amount <= 0) {
             return false;
         }
         balance -= amount;
@@ -41,7 +41,7 @@ public class BankAccount {
     }
 
     public static int getNumber() { // bo pole number jest static i żeby można było sparawdzić ilośc kont bez tworzenia obiektu
-        return number;
+        return number - 1000;
     }
 
     public int getUniqueNumber() {

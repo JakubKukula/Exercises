@@ -8,11 +8,11 @@ public class Main {
         a.deposit(200);
         System.out.println(a.withdraw(100));   // true
         System.out.println(a.withdraw(101));   // false
-        System.out.println(a);                 // 1000 Ala 100
+        System.out.println(a);                 // 1000 Ala 100.0
         System.out.println(b.withdraw(1));     // false
-        System.out.println(b);                 // 1001 Bartek 0
+        System.out.println(b);                 // 1001 Bartek 0.0
         System.out.println(BankAccount.getNumber()); // 1002
-        a.deposit(0);                          //  wyjątek
+        //a.deposit(0);                          //  wyjątek
         //new BankAccount("   ", 100);           // wyjątek
     }
 }
