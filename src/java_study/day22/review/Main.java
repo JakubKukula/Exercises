@@ -1,4 +1,4 @@
-package java_study.review;
+package java_study.day22.review;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +37,11 @@ public class Main {
 
         List<Car> dieselOnly = new ArrayList<>();
 
-        dieselOnly.add(new Car("Octavia", Fuel.DIESEL));
         Fleet fleetDiesel = new Fleet(dieselOnly);
+        dieselOnly.add(new Car("Octavia", Fuel.DIESEL));
 
         System.out.println(fleetDiesel.groupByFuel().containsKey(Fuel.PETROL));   // false
-        System.out.println(fleetDiesel.groupByFuel().size());              // 1
+        System.out.println(fleetDiesel.groupByFuel().size());              // 0
 
         Fleet emptyFleet = new Fleet(new ArrayList<>());
 
@@ -51,5 +51,12 @@ public class Main {
 
         System.out.println(fleet.allCost(10));                   // 18.0
         System.out.println(emptyFleet.allCost(10));      // 0.0
+
+        List<Car> outside = new ArrayList<>();
+        Fleet protectedFleet = new Fleet(outside);
+        outside.add(new Car("Yaris", Fuel.PETROL));                       // dodane PO utworzeniu floty
+        System.out.println(protectedFleet.getCars().size());              // 0
+        protectedFleet.getCars().add(new Car("Clio", Fuel.PETROL));       // dodane do KOPII z gettera
+        System.out.println(protectedFleet.getCars().size());              // 0
     }
 }

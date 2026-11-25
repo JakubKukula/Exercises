@@ -1,4 +1,4 @@
-package java_study.review;
+package java_study.day22.review;
 
 public enum Fuel {
     PETROL(0.60),

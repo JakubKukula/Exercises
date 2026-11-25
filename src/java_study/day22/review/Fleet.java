@@ -1,4 +1,4 @@
-package java_study.review;
+package java_study.day22.review;
 
 import java.util.ArrayList;
 import java.util.List;
