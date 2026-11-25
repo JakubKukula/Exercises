@@ -27,4 +27,9 @@ public class Car {
     public static int getCount() {
         return count;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

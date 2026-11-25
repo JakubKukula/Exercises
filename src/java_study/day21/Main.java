@@ -16,7 +16,9 @@ public class Main {
         //new BankAccount("   ", 100);           // wyjątek
         BankAccount c = new BankAccount("Cel", 100);
         c.deposit(50);
-        System.out.println(c.withdraw(-20));   // true
-        System.out.println(c);                 // 1000 Cel 50.0   ← teraz jest dobrze
+        System.out.println(c.withdraw(-20));   // false
+        System.out.println(c);                 // 1002 Cel 50.0   ← teraz jest dobrze
+        //new BankAccount("Zła", -5);       // → wyjątek (uruchom osobno, potem zakomentuj)
+        System.out.println(BankAccount.getAccountCount());     // 3  ← przewidź: ile kont, jeśli Zła nie powstała?
     }
 }
