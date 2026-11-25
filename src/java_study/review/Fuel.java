@@ -11,6 +11,8 @@ public enum Fuel {
         this.pricePerKm = pricePerKm;
     }
 
+    // bo stała enuma jest niezmienna i porównując diesel == diesel da true
+
     public double getPricePerKm() {
         return pricePerKm;
     }

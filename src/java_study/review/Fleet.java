@@ -10,7 +10,7 @@ public class Fleet {
     private final List<Car> cars;
 
     public Fleet(List<Car> cars) {
-        this.cars = cars;
+        this.cars = new ArrayList<>(cars);
     }
 
     public Map<Fuel, List<Car>> groupByFuel() {
@@ -26,7 +26,7 @@ public class Fleet {
         return result;
     }
 
-    public Fuel chappestFuelUsed() {
+    public Fuel cheapestFuelUsed() {
         if (cars.isEmpty()) {
             return null;
         }
@@ -42,14 +42,15 @@ public class Fleet {
     public double allCost(int km) {
         double result = 0.0;
         for (Car car : cars) {
-            double costFuelByKm = car.getFuel().getPricePerKm();
-            result += costFuelByKm * km;
+            result += car.tripCost(km);
         }
         return result;
     }
 
+    // metody nie mogą byc static bo używają pola fleet
+
     public List<Car> getCars() {
-        return cars;
+        return new ArrayList<>(cars);
     }
 
     @Override

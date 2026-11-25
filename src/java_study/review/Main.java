@@ -37,16 +37,17 @@ public class Main {
 
         List<Car> dieselOnly = new ArrayList<>();
 
-        Fleet fleetDiesel = new Fleet(dieselOnly);
         dieselOnly.add(new Car("Octavia", Fuel.DIESEL));
+        Fleet fleetDiesel = new Fleet(dieselOnly);
+
         System.out.println(fleetDiesel.groupByFuel().containsKey(Fuel.PETROL));   // false
         System.out.println(fleetDiesel.groupByFuel().size());              // 1
 
         Fleet emptyFleet = new Fleet(new ArrayList<>());
 
-        System.out.println(fleet.chappestFuelUsed());                // electric
-        System.out.println(fleetDiesel.chappestFuelUsed());          // diesel
-        System.out.println(emptyFleet.chappestFuelUsed());   //  null
+        System.out.println(fleet.cheapestFuelUsed());                // electric
+        System.out.println(fleetDiesel.cheapestFuelUsed());          // diesel
+        System.out.println(emptyFleet.cheapestFuelUsed());   //  null
 
         System.out.println(fleet.allCost(10));                   // 18.0
         System.out.println(emptyFleet.allCost(10));      // 0.0
