@@ -32,6 +32,6 @@ public class Main {
         System.out.println(school.overview().get(Languages.ENGLISH));   // 1   (według Twojej decyzji z pkt 3)
         System.out.println(school.overview().get(Languages.GERMAN));    // 2
 //        new Course("Hiszpański", Languages.SPANISH, 0);  // → wyjątek
-        System.out.println(Course.getCountCourses());    //→ nie   ←czy nieudany kurs podbił licznik ?
+        System.out.println(Course.getCountCourses());    // 3   ←czy nieudany kurs podbił licznik ? nie
     }
 }
