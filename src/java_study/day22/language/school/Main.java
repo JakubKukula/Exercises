@@ -21,17 +21,17 @@ public class Main {
         System.out.println(bo.addCourse(de));                    // true
         System.out.println(de.addStudent(alicja));               // true   ostatnie miejsce
         System.out.println(alicja.getCourses().size());          // 1
-        System.out.println(de.addStudent(ala));                  // powinno byc false
-        System.out.println(ala.equals(alicja));                  // powinno byc false jest true
-        System.out.println(ala.addCourse(b2));                   // ?
-        System.out.println(ala.coursesPrice());                  // ?
-        System.out.println(bo.coursesPrice());                   // ?
+        System.out.println(de.addStudent(ala));                  // true
+        System.out.println(ala.equals(alicja));                  // true
+        System.out.println(ala.addCourse(b2));                   // true
+        System.out.println(ala.coursesPrice());                  //200.0
+        System.out.println(bo.coursesPrice());                   // 120.0
 
         School school = new School(List.of(a1, de, b2));
-        System.out.println(school.students().size());            // ?   ← Ala i Alicja to ta sama osoba
-        System.out.println(school.overview().get(Languages.ENGLISH));   // ?   (według Twojej decyzji z pkt 3)
-        System.out.println(school.overview().get(Languages.GERMAN));    // ?
-// new Course("Hiszpański", Languages.SPANISH, 0)   → ?
-// System.out.println(Course.getCountCourses());    → ?   ← czy nieudany kurs podbił licznik?
+        System.out.println(school.students().size());            //2
+        System.out.println(school.overview().get(Languages.ENGLISH));   // 1   (według Twojej decyzji z pkt 3)
+        System.out.println(school.overview().get(Languages.GERMAN));    // 2
+//        new Course("Hiszpański", Languages.SPANISH, 0);  // → wyjątek
+        System.out.println(Course.getCountCourses());    //→ nie   ←czy nieudany kurs podbił licznik ?
     }
 }

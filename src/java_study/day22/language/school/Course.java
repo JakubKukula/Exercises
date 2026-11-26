@@ -19,7 +19,7 @@ public class Course {
         this.name = name;
         this.languages = languages;
         if (maxStudent <= 0) {
-            throw new IllegalArgumentException("Max Students cannot be less by 0");
+            throw new IllegalArgumentException("Max Students cannot be 0 or less by 0");
         }
         this.maxStudent = maxStudent;
         countCourses++;
