@@ -28,8 +28,12 @@ public class Shelter {
     public double allCost() {
         double result = 0;
         for (Animal animal : animalList) {
-            result += animal.dayleCost();
+            result += animal.dailyCost();
         }
         return result;
+    }
+
+    public List<Animal> getAnimalList() {
+        return new ArrayList<>(animalList);
     }
 }

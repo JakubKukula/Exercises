@@ -1,15 +1,17 @@
 package java_study.day23.animal.shelter;
 
-public abstract class Animal {
+public abstract class Animal { // żeby inne klasy mogły dziedziczyć pola jak i metody z tej klasy i nie pisać w każdej
+    // klasie pól name czy age
 
     private String name;
     private int age;
-    private double costPerDay;
 
-    public Animal(String name, int age, double costPerDay) {
+    public Animal(String name, int age) {
+        if (name == null || name.isBlank()){
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
         this.name = name;
         this.age = age;
-        this.costPerDay = costPerDay;
     }
 
     public String getName() {
@@ -20,12 +22,15 @@ public abstract class Animal {
         return age;
     }
 
-    public double getCostPerDay() {
-        return costPerDay;
-    }
-
-    public abstract double dayleCost();
+    public abstract double dailyCost();
 
     public abstract void makeSound();
 
+    // te dwie klasy są abstrakcujne bo kazda klasa dziedzicąca tez musi wykorzystać te metody do polecenia i prościej
+    // potem to tylko wykorzystać nadpisując
+
+    @Override
+    public String toString() {
+        return name + " " + age;
+    }
 }

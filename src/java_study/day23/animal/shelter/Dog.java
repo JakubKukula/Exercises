@@ -2,23 +2,24 @@ package java_study.day23.animal.shelter;
 
 public class Dog extends Animal {
 
-    private String fetch;
+    private String breed;
 
-    public Dog(String name, int age, double costPerDay, String fetch) {
-        super(name, age, costPerDay);
-        this.fetch = fetch;
+    public Dog(String name, int age, String fetch) {
+        super(name, age);
+        this.breed = fetch;
     }
 
     public void walk(){
         System.out.println(getName() + " walk");
     }
+    // bo tylko psa sie wyprowadza na spacer i tak też mówiło polecenie zadania
 
-    public String getFetch() {
-        return fetch;
+    public String getBreed() {
+        return breed;
     }
 
     @Override
-    public double dayleCost() {
+    public double dailyCost() {
         return 10 + getAge();
     }
 
@@ -29,6 +30,6 @@ public class Dog extends Animal {
 
     @Override
     public String toString() {
-        return getName() + " " + getAge() + " " + getCostPerDay() + " " + fetch;
+        return super.toString() + " " + breed;
     }
 }

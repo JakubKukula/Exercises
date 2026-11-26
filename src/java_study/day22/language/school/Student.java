@@ -19,7 +19,7 @@ public class Student {
         if (email == null || email.isBlank()) {
             throw new IllegalArgumentException("Enter true email");
         }
-        if (!checkEmail(email)){
+        if (!checkEmail(email)) {
             throw new IllegalArgumentException("Incorrect email");
         }
         this.email = email;
@@ -49,7 +49,7 @@ public class Student {
     public boolean checkEmail(String email) {
         String normalize = email.trim().toLowerCase();
         int at = normalize.indexOf("@");
-        return at != 0 || at != normalize.length() - 1 && at == normalize.lastIndexOf("@");
+        return at > 0 && at != normalize.length() - 1 && at == normalize.lastIndexOf("@");
     }
 
     public String getName() {
