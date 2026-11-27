@@ -11,6 +11,9 @@ public abstract class Animal { // żeby inne klasy mogły dziedziczyć pola jak 
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
         this.name = name;
+        if (age < 0){
+            throw new IllegalArgumentException("Age cannot be less than 0");
+        }
         this.age = age;
     }
 
